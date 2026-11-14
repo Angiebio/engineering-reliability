@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.DS_Store
+# Records written by tools/verify_comment_mutations.py
+build/
+# QA screenshots stay in the lab archive (they show the reports before the header change).
+demos/*/qa/**/*.png

@@ -1,0 +1,12 @@
+[project]
+name = "adapter-promotion-gate"
+version = "0.1.0"
+description = "Evidence-bound synthetic adapter promotion and rollback demonstration"
+requires-python = ">=3.11"
+dependencies = []
+license = "MIT"
+authors = [{name = "The Real Cat Labs"}]
+
+[tool.demo]
+runtime-dependencies = "Python standard library only; no dependency installation required"
+verified-runtime = "CPython 3.13.5 on Windows"

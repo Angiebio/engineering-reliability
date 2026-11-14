@@ -1,0 +1,20 @@
+[
+  {
+    "file": "gate-stages.svg",
+    "identical": true,
+    "sha256": "e67e12315bdf965ce075240d6bdcbd8386f71c161969ae9db07f4172f6b17338",
+    "lf_only": true
+  },
+  {
+    "file": "index.html",
+    "identical": true,
+    "sha256": "c9dbd2b0aff83c1478f0fe63be7dfb0c88df46baa07ccd8cb965b8b4b19a9f6a",
+    "lf_only": true
+  },
+  {
+    "file": "results.json",
+    "identical": true,
+    "sha256": "213f871000deb05706ff7a2c3184903ab812cb242f4bcbea845245d8950c0127",
+    "lf_only": true
+  }
+]

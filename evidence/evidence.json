@@ -1,0 +1,2641 @@
+{
+  "schema_version": 1,
+  "title": "Can the tests notice a broken claim?",
+  "export_scope": "Public summaries of recorded executions; raw review archives are retained privately.",
+  "first_score": {
+    "round": 3,
+    "snapshot": "TV-RECHECK-FIXES-13NOV2026",
+    "reviewer": "Flame Johnson",
+    "review_date_as_reported": "2026-11-13",
+    "scope": "Held-out reviewer round, scored before repair; historical first score on the named snapshot. These cases are now known.",
+    "chronology_basis": "Flame states these mutations were chosen after the repair and unseen by TV when first scored; no independent timestamp proof is supplied.",
+    "execution_basis": "Flame executed the archived runner. TV parsed and bound the supplied records; TV did not rerun these mutations.",
+    "record_limits": "The supplied output has suite summaries and at most three failing method names per case, not full stderr, fully qualified test names or per-case exit-code transcripts.",
+    "counting": "Fourteen selected, related edits; not a general detection rate or a combined total with the 176 development cases.",
+    "cases": [
+      {
+        "id": "T-PG1",
+        "package": "adapter-promotion-gate",
+        "name": "T-PG1 predecessor identity check disabled",
+        "status": "caught",
+        "failure_summary": "FAILED (failures=3)",
+        "failed_tests": [
+          "test_approve_rejects_same_bytes_replacement",
+          "test_revoked_predecessor_stays_revoked_while_fresh_nested_rollback_works",
+          "test_serve_rejects_same_bytes_replacement"
+        ],
+        "classification": "detected",
+        "edits": [
+          {
+            "source": "promotion_gate/core.py",
+            "old": "require(state['serving'] == candidate['predecessor'],",
+            "new": "require(True,"
+          }
+        ]
+      },
+      {
+        "id": "T-PG2",
+        "package": "adapter-promotion-gate",
+        "name": "T-PG2 identity check weakened back to equal bytes",
+        "status": "caught",
+        "failure_summary": "FAILED (failures=3)",
+        "failed_tests": [
+          "test_approve_rejects_same_bytes_replacement",
+          "test_revoked_predecessor_stays_revoked_while_fresh_nested_rollback_works",
+          "test_serve_rejects_same_bytes_replacement"
+        ],
+        "classification": "detected",
+        "edits": [
+          {
+            "source": "promotion_gate/core.py",
+            "old": "require(state['serving'] == candidate['predecessor'],",
+            "new": "require(state['records'][state['serving']]['sha256'] == state['records'][candidate['predecessor']]['sha256'],"
+          }
+        ]
+      },
+      {
+        "id": "T-PG3",
+        "package": "adapter-promotion-gate",
+        "name": "T-PG3 displacement mints approval (transition + replay)",
+        "status": "caught",
+        "failure_summary": "FAILED (failures=1)",
+        "failed_tests": [
+          "test_displacement_cannot_recycle_approval"
+        ],
+        "classification": "detected",
+        "edits": [
+          {
+            "source": "promotion_gate/core.py",
+            "old": "updated['records'][state['serving']]['state'] = 'superseded'",
+            "new": "updated['records'][state['serving']]['state'] = 'approved'"
+          },
+          {
+            "source": "promotion_gate/core.py",
+            "old": "reconstructed[pointer], reconstructed[key], pointer = 'superseded', 'serving', key",
+            "new": "reconstructed[pointer], reconstructed[key], pointer = 'approved', 'serving', key"
+          }
+        ]
+      },
+      {
+        "id": "T-PG4",
+        "package": "adapter-promotion-gate",
+        "name": "T-PG4 freshness window exclusive at 7 days",
+        "status": "caught",
+        "failure_summary": "FAILED (errors=3)",
+        "failed_tests": [
+          "test_exact_freshness_boundaries"
+        ],
+        "classification": "detected",
+        "edits": [
+          {
+            "source": "promotion_gate/core.py",
+            "old": "require(timedelta(0) <= age <= MAX_AGE, \"stale_evidence\",",
+            "new": "require(timedelta(0) <= age < MAX_AGE, \"stale_evidence\","
+          }
+        ]
+      },
+      {
+        "id": "T-PG5",
+        "package": "adapter-promotion-gate",
+        "name": "T-PG5 future-dated evidence allowed",
+        "status": "caught",
+        "failure_summary": "FAILED (failures=4)",
+        "failed_tests": [
+          "test_exact_freshness_boundaries",
+          "test_stale_and_future_evidence"
+        ],
+        "classification": "detected",
+        "edits": [
+          {
+            "source": "promotion_gate/core.py",
+            "old": "require(timedelta(0) <= age <= MAX_AGE, \"stale_evidence\",",
+            "new": "require(age <= MAX_AGE, \"stale_evidence\","
+          }
+        ]
+      },
+      {
+        "id": "T-SO1",
+        "package": "stagnation-observatory",
+        "name": "T-SO1 tick rule back to merely increasing",
+        "status": "caught",
+        "failure_summary": "FAILED (failures=1)",
+        "failed_tests": [
+          "test_agent_cannot_jump_to_a_future_authorized_wait"
+        ],
+        "classification": "detected",
+        "edits": [
+          {
+            "source": "observatory/core.py",
+            "old": "if event.tick != previous + 1:",
+            "new": "if event.tick <= previous:"
+          }
+        ]
+      },
+      {
+        "id": "T-SO2",
+        "package": "stagnation-observatory",
+        "name": "T-SO2 RecursionError no longer caught",
+        "status": "caught",
+        "failure_summary": "FAILED (errors=1)",
+        "failed_tests": [
+          "test_deep_json_is_an_evidence_error"
+        ],
+        "classification": "detected",
+        "edits": [
+          {
+            "source": "observatory/core.py",
+            "old": "except (ValueError, TypeError, RecursionError):",
+            "new": "except (ValueError, TypeError):"
+          }
+        ]
+      },
+      {
+        "id": "T-SO3",
+        "package": "stagnation-observatory",
+        "name": "T-SO3 unused waits silently dropped",
+        "status": "caught",
+        "failure_summary": "FAILED (failures=1)",
+        "failed_tests": [
+          "test_unused_harness_inputs_are_explicit_diagnostics"
+        ],
+        "classification": "detected",
+        "edits": [
+          {
+            "source": "observatory/core.py",
+            "old": "'unused_waits': sorted(set(spec['waits']) - used_waits),",
+            "new": "'unused_waits': [],"
+          }
+        ]
+      },
+      {
+        "id": "T-SO4",
+        "package": "stagnation-observatory",
+        "name": "T-SO4 text limit counts characters not bytes",
+        "status": "caught",
+        "failure_summary": "FAILED (failures=1)",
+        "failed_tests": [
+          "test_text_and_artifact_byte_limits"
+        ],
+        "classification": "detected",
+        "edits": [
+          {
+            "source": "observatory/core.py",
+            "old": "len(event.text.encode(\"utf-8\")) > MAX_TEXT_BYTES",
+            "new": "len(event.text) > MAX_TEXT_BYTES"
+          }
+        ]
+      },
+      {
+        "id": "T-SO5",
+        "package": "stagnation-observatory",
+        "name": "T-SO5 event-count limit off by one",
+        "status": "caught",
+        "failure_summary": "FAILED (errors=1)",
+        "failed_tests": [
+          "test_event_count_limit"
+        ],
+        "classification": "detected",
+        "edits": [
+          {
+            "source": "observatory/core.py",
+            "old": "not 1 <= len(records) <= MAX_TRACE_EVENTS",
+            "new": "not 1 <= len(records) < MAX_TRACE_EVENTS"
+          }
+        ]
+      },
+      {
+        "id": "T-RM1",
+        "package": "registry-metric-lab",
+        "name": "T-RM1 sweep legend endpoints swapped",
+        "status": "caught",
+        "failure_summary": "FAILED (failures=1)",
+        "failed_tests": [
+          "test_sweep_legend_changes_with_values"
+        ],
+        "classification": "detected",
+        "edits": [
+          {
+            "source": "registry_metrics/report.py",
+            "old": "f'Joined sum {display(first[\"stats\"][\"incorrect\"][\"enrollment_sum\"])} to {display(last[\"stats\"][\"incorrect\"][\"enrollment_sum\"])}; identity sum {identity_label}.'",
+            "new": "f'Joined sum {display(last[\"stats\"][\"incorrect\"][\"enrollment_sum\"])} to {display(first[\"stats\"][\"incorrect\"][\"enrollment_sum\"])}; identity sum {identity_label}.'"
+          }
+        ]
+      },
+      {
+        "id": "T-RM2",
+        "package": "registry-metric-lab",
+        "name": "T-RM2 identity label pinned to first value",
+        "status": "survived",
+        "failure_summary": "OK",
+        "failed_tests": [],
+        "classification": "near-equivalent",
+        "edits": [
+          {
+            "source": "registry_metrics/report.py",
+            "old": "identity_label = display(identities[0]) if len(identities) == 1 else f'{display(min(identities))} to {display(max(identities))}'",
+            "new": "identity_label = display(identities[0])"
+          }
+        ]
+      },
+      {
+        "id": "T-CL1",
+        "package": "continuity-ledger",
+        "name": "T-CL1 worker calls counted only for propose",
+        "status": "caught",
+        "failure_summary": "FAILED (failures=2)",
+        "failed_tests": [
+          "test_cli_end_to_end",
+          "test_natural_control_traverses_run_and_real_ablation"
+        ],
+        "classification": "detected",
+        "edits": [
+          {
+            "source": "continuity/__main__.py",
+            "old": "        calls.append(request['operation'])",
+            "new": "        calls.append(request['operation']) if request['operation'] == 'propose' else None"
+          }
+        ]
+      },
+      {
+        "id": "T-CL2",
+        "package": "continuity-ledger",
+        "name": "T-CL2 gate-off arm runs timeline instead of raw tail",
+        "status": "caught",
+        "failure_summary": "FAILED (failures=2)",
+        "failed_tests": [
+          "test_cli_end_to_end",
+          "test_natural_control_traverses_run_and_real_ablation"
+        ],
+        "classification": "detected",
+        "edits": [
+          {
+            "source": "continuity/__main__.py",
+            "old": "replay_case(output, history, expected, 'raw_tail', gate_enabled=False)",
+            "new": "replay_case(output, history, expected, 'timeline', gate_enabled=False)"
+          }
+        ]
+      }
+    ],
+    "counts": {
+      "tested": 14,
+      "caught": 13,
+      "survived": 1,
+      "inconclusive": 0
+    },
+    "private_archive_sha256": {
+      "review": "61ae33a534aac48463654695832b85d7755998f96d307f4106b2c8ee367e966c",
+      "catalog": "4f47a61af3a10b33a92dafdbc1547d42f1081193ffc99a9b1a6b7872ac24a5ef",
+      "outcomes": "da1073ae995bbe7e19d020ac97c81ad1ff8b99a4af40aa5aee8d0e6b6c06da7c",
+      "clean_suites": "aaac63ccd4190273e1fb9cb9fc5ef255577fe98d2ef2d2bccf467a10db4a9004",
+      "snapshot_before": "2266e551569f7118fd5d68d29fe9fc40819dba5881ad1a858720f817807d7ff7",
+      "snapshot_after": "2266e551569f7118fd5d68d29fe9fc40819dba5881ad1a858720f817807d7ff7"
+    }
+  },
+  "known_cases": {
+    "scope": "Outside-selected cases, now known development regressions. Current suites rerun by TV; all cases retained.",
+    "selection": "Flame Johnson and independent review agents chose these edits before this repair.",
+    "counting": "Case counts include related edits; they are not independent error rates or broad coverage estimates.",
+    "packages": [
+      {
+        "package": "continuity-ledger",
+        "label": "Continuity Ledger",
+        "rows": [
+          {
+            "reviewer_case_id": "M1 gate call disconnected at replay call site (pass-through)",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "runtime_guard",
+            "name": "M1 gate call disconnected at replay call site (pass-through)",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "M2 check_proposal approves every resume",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "M2 check_proposal approves every resume",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "M3 exact binding: record equality dropped",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "M3 exact binding: record equality dropped",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "M4 exact binding removed entirely",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "M4 exact binding removed entirely",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "M5 pack by characters",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "M5 pack by characters",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "M5b pack AND report by characters",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "M5b pack AND report by characters",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "M6 budget excludes envelope",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "M6 budget excludes envelope",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "M7 label added to restore stdin (parent check intact)",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "M7 label added to restore stdin (parent check intact)",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "M7b label to restore stdin + parent AND worker key checks disabled",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "M7b label to restore stdin + parent AND worker key checks disabled",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "M8 label added to propose stdin (parent check intact)",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "M8 label added to propose stdin (parent check intact)",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "M8b label to propose stdin + parent AND worker key checks disabled",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "M8b label to propose stdin + parent AND worker key checks disabled",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "M8c labels.json written before any worker runs",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "M8c labels.json written before any worker runs",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "M9 (control) stale-evidence check removed",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "M9 (control) stale-evidence check removed",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "M10 (control) snapshot hash comparison removed",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "M10 (control) snapshot hash comparison removed",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "M11 (control) timeline stops filtering notes",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "M11 (control) timeline stops filtering notes",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "M12 planted row outcome hard-coded to \"resume\"",
+            "before_status": "survived",
+            "after_status": "survived",
+            "classification": "equivalent",
+            "name": "M12 planted row outcome hard-coded to \"resume\"",
+            "explanation": "The planted-input row is explicitly an authored resume proposal; replacing that authored value with the same literal does not change the experiment.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "M13 always-hold gate",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "M13 always-hold gate",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "M14 worker replaced by in-process call (pid+1)",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "M14 worker replaced by in-process call (pid+1)",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "M14b adversarial in-process worker (keeps key check, wraps errors, fake pid per call)",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "M14b adversarial in-process worker (keeps key check, wraps errors, fake pid per call)",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "M15 fresh-process PID guard deleted",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "M15 fresh-process PID guard deleted",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N1 gate-off arm echoes literal \"resume\"",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N1 gate-off arm echoes literal \"resume\"",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N2 gate-off rows copied from gated twin (no independent execution)",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N2 gate-off rows copied from gated twin (no independent execution)",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N3 gate-off arm secretly gated",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N3 gate-off arm secretly gated",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N4 gate disconnected AND _build natural guard removed (two-point)",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N4 gate disconnected AND _build natural guard removed (two-point)",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N5 gate applied only to natural rows (main matrix bypassed; contrived)",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N5 gate applied only to natural rows (main matrix bypassed; contrived)",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N6 exact binding: prefix-only text compare (first 40 chars)",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N6 exact binding: prefix-only text compare (first 40 chars)",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N7 exact binding: text-only compare (kind/sequence/supersedes unbound)",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N7 exact binding: text-only compare (kind/sequence/supersedes unbound)",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N8 UTF-8 pack off-by-one (< instead of <=)",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N8 UTF-8 pack off-by-one (< instead of <=)",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N9 envelope guard off-by-one (>= instead of >)",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "runtime_guard",
+            "name": "N9 envelope guard off-by-one (>= instead of >)",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N10 stale check partially removed (old request exempt)",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N10 stale check partially removed (old request exempt)",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N11 PID guard compares parent pid",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N11 PID guard compares parent pid",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N12 parent key check only on propose",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N12 parent key check only on propose",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N13 timeline filters by role instead of kind (equivalent on fixtures?)",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N13 timeline filters by role instead of kind (equivalent on fixtures?)",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N14 changed-text control forged on completed ledger again",
+            "before_status": "survived",
+            "after_status": "survived",
+            "classification": "equivalent",
+            "name": "N14 changed-text control forged on completed ledger again",
+            "explanation": "With exact binding intact, forged text is rejected as unbound before staleness in both ledgers. This changes the probe context, but not its observed reason or action.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N15 explorer verdict: unsafe_caught collapsed into correct_hold",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N15 explorer verdict: unsafe_caught collapsed into correct_hold",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N16 explorer headline counts hard-coded (caught=3, bypassed=3)",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N16 explorer headline counts hard-coded (caught=3, bypassed=3)",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N17 sweep counts proposals instead of gate outcomes",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N17 sweep counts proposals instead of gate outcomes",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N18 sweep unsafe_final hard-coded 0",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N18 sweep unsafe_final hard-coded 0",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N19 worker failure reason dropped (CL-12 regression)",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N19 worker failure reason dropped (CL-12 regression)",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N20 worker re-prepends package root to sys.path (CL-15 regression)",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "runtime_guard",
+            "name": "N20 worker re-prepends package root to sys.path (CL-15 regression)",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N21 publish merges previous snapshots (orphans survive)",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N21 publish merges previous snapshots (orphans survive)",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N22 negative_controls expected-reason assertion removed",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N22 negative_controls expected-reason assertion removed",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N23 N14 + N22 (changed-text control silently reports stale again)",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N23 N14 + N22 (changed-text control silently reports stale again)",
+            "explanation": "Full current unit suite rejected the compiled reviewer-selected change.",
+            "failing_tests": []
+          }
+        ],
+        "before": {
+          "tested": 43,
+          "caught": 29,
+          "survived": 14,
+          "inconclusive": 0
+        },
+        "after": {
+          "tested": 43,
+          "caught": 41,
+          "survived": 2,
+          "inconclusive": 0
+        }
+      },
+      {
+        "package": "adapter-promotion-gate",
+        "label": "Adapter Promotion Gate",
+        "rows": [
+          {
+            "reviewer_case_id": "A1",
+            "before_status": "survived",
+            "after_status": "survived",
+            "classification": "equivalent",
+            "name": "A1 number(): drop math.isfinite term",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "A2",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "A2 number() disconnected from evaluate() (raw values)",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "A3",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "A3 number(): range+finite require removed",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "A4",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "A4 parse_constant hook removed",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "B1",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "B1 mandatory-canary completeness removed",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "B2",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "B2 closed-suite canary id check removed",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "B3",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "B3 failed-canary check removed",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "C1",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "C1 capacity check removed",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "C2",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "C2 capacity checked AFTER commit (HAC-2 bug)",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "D1",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "D1 serve-time freshness disconnected (kept at approve)",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "D2",
+            "before_status": "caught",
+            "after_status": "survived",
+            "classification": "equivalent",
+            "name": "D2 serve/approve baseline identity check removed",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "D3",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "D3 rollback leaves candidate 'shadow' (transition only)",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "D3b",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "D3b rollback->shadow COORDINATED with audit replay",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "D3c",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "D3c PG-01 reintroduced COORDINATED (rollback->approved in transition+replay)",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "D3d",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "D3d rollback revocation line deleted",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "D4",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "D4 rollback_mismatch check (validate_state) removed",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "D5",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "D5 rollback commits audit but does not move serving",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "E1",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "E1 release-manager label check removed",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "E2",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "E2 stored-bytes integrity check removed",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "E3",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "E3 manifest trust-anchor comparison removed",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "E4",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "E4 unchanged_candidate removed",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "E5",
+            "before_status": "survived",
+            "after_status": "survived",
+            "classification": "disclosed",
+            "name": "E5 fsync removed",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "E6",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "E6 writer lock O_EXCL removed",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N1",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N1 read() skips validate_state (write keeps it)",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N2",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N2 _write skips validate_state (read keeps it)",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N2b",
+            "before_status": "survived",
+            "after_status": "survived",
+            "classification": "equivalent",
+            "name": "N2b _write validates the in-memory object, not reparsed bytes",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N3",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N3 _commit stops normalizing clock (instant = raw clock)",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N4",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "runtime_guard",
+            "name": "N4 utc_clock returns value without astimezone",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N5",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N5 headroom reserve = one record only (not per record)",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N6",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N6 headroom reserve per record 32768 -> 2048",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N7",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N7 headroom sign flipped (+ reserve -> - reserve)",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N8",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N8 per-event audit snapshot comparison removed",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N9",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N9 audit actor/action binding removed",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N10",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N10 serve freshness uses clock lagging 12h (boundary weakening)",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N10b",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N10b fresh() window widened by 23h (age <= MAX_AGE + 23h)",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N11",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "runtime_guard",
+            "name": "N11 fresh() boundary age <= MAX_AGE -> age < MAX_AGE",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N12",
+            "before_status": "survived",
+            "after_status": "survived",
+            "classification": "equivalent",
+            "name": "N12 admit-path gain upper bound 1 -> 2",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N13",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "runtime_guard",
+            "name": "N13 rollback always restores 'baseline' (transition only)",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N14",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "N14 audit replay: approve accepted from any state",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "G1",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "G1 observed_success drops serving-byte hash check",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "G2",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "G2 gallery lifecycle never performs rollback",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "G3",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "G3 PG-GALLERY-OBSERVATION (TV's contract mutant)",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "V1",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "V1 evaluate(): canaries block executed BEFORE metrics block",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "V2",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "V2 CHECK_STAGES display order swapped (code unchanged)",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "V3",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "runtime_guard",
+            "name": "V3 evaluate() stage renamed canaries->canary_suite (display list stale)",
+            "explanation": "",
+            "failing_tests": []
+          }
+        ],
+        "before": {
+          "tested": 45,
+          "caught": 33,
+          "survived": 12,
+          "inconclusive": 0
+        },
+        "after": {
+          "tested": 45,
+          "caught": 40,
+          "survived": 5,
+          "inconclusive": 0
+        }
+      },
+      {
+        "package": "registry-metric-lab",
+        "label": "Registry Metric Lab",
+        "rows": [
+          {
+            "reviewer_case_id": "A_identity_step_removed",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "A_identity_step_removed",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "B_geography_pairs_not_distinct",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "B_geography_pairs_not_distinct",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "C_geography_sum_distinct_values",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "C_geography_sum_distinct_values",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "D_corrected_rates_value_deduped",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "D_corrected_rates_value_deduped",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "E1_corrected_geo_filter_dropped",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "E1_corrected_geo_filter_dropped",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "E2_geo_filter_dropped_both",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "E2_geo_filter_dropped_both",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "F1_corrected_unknown_country_kept",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "F1_corrected_unknown_country_kept",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "F2_flawed_unknown_country_kept",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "F2_flawed_unknown_country_kept",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "G_geography_dropped_entirely",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "G_geography_dropped_entirely",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "H_median_low_instead_of_median",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "H_median_low_instead_of_median",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "I_flawed_query_made_correct",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "I_flawed_query_made_correct",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "J_render_bar_labels_swapped",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "J_render_bar_labels_swapped",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "K_render_bars_not_zero_based",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "K_render_bars_not_zero_based",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "L_render_edges_from_wrong_trial",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "L_render_edges_from_wrong_trial",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "M_render_duplicate_marker_removed",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "M_render_duplicate_marker_removed",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "N_render_dots_from_flawed_list",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "N_render_dots_from_flawed_list",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R1a_bar_width_sqrt_scale",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "R1a_bar_width_sqrt_scale",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R1b_compact_bars_not_zero_based",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "R1b_compact_bars_not_zero_based",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R1c_bars_equal_full_width",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "R1c_bars_equal_full_width",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R1d_compact_value_label_offscreen",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "R1d_compact_value_label_offscreen",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R1e_geo_bars_equal_full_width",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "R1e_geo_bars_equal_full_width",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R1f_sweep_y_scale_not_zero_based",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "R1f_sweep_y_scale_not_zero_based",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R2a_geo_renderer_drops_last_group",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "R2a_geo_renderer_drops_last_group",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R2b_geo_renderer_methods_swapped",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "R2b_geo_renderer_methods_swapped",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R2c_html_country_table_drops_group",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "R2c_html_country_table_drops_group",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R2d_provenance_drops_last_row",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "R2d_provenance_drops_last_row",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R2e_rate_dot_dropped",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "R2e_rate_dot_dropped",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R2f_sweep_corrected_line_plots_flawed",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "R2f_sweep_corrected_line_plots_flawed",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R2g_right_edges_ignore_trial",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "R2g_right_edges_ignore_trial",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R3a_flawed_map_joins_only_when_filtered",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "R3a_flawed_map_joins_only_when_filtered",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R3b_flawed_map_no_intervention_multiplication",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "R3b_flawed_map_no_intervention_multiplication",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R3c_flawed_map_removed",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "R3c_flawed_map_removed",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R4a_corrected_pairs_value_distinct",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "R4a_corrected_pairs_value_distinct",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R4b_flawed_map_count_distinct_value",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "R4b_flawed_map_count_distinct_value",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R4c_flawed_stats_count_distinct_value",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "R4c_flawed_stats_count_distinct_value",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R4d_summarize_trial_count_by_value",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "R4d_summarize_trial_count_by_value",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R4e_cohort_in_subquery_no_distinct",
+            "before_status": "survived",
+            "after_status": "survived",
+            "classification": "equivalent",
+            "name": "R4e_cohort_in_subquery_no_distinct",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R5a_category_ignores_map",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "R5a_category_ignores_map",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R5b_category_always_control",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "R5b_category_always_control",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R6a_sweep_world_is_filtered",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "R6a_sweep_world_is_filtered",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "R6b_sweep_adds_no_sites",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "R6b_sweep_adds_no_sites",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "W1a",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "W1a",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "W1b",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "W1b",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "W2",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "W2",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "W3",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "W3",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "W4",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "W4",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "W5",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "W5",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "W6",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "W6",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "W7",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "caught",
+            "name": "W7",
+            "explanation": "",
+            "failing_tests": []
+          }
+        ],
+        "before": {
+          "tested": 49,
+          "caught": 33,
+          "survived": 16,
+          "inconclusive": 0
+        },
+        "after": {
+          "tested": 49,
+          "caught": 48,
+          "survived": 1,
+          "inconclusive": 0
+        }
+      },
+      {
+        "package": "stagnation-observatory",
+        "label": "Stagnation Observatory",
+        "rows": [
+          {
+            "reviewer_case_id": "SO/ablations_v2/evidence_always_accept",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/evidence_always_accept",
+            "explanation": "",
+            "failing_tests": [
+              "test_harness.HarnessTests.test_all_generated_files_use_lf_and_regenerate_identically.test_all_generated_files_use_lf_and_regenerate_identically",
+              "test_core.ObservatoryTests.test_artifact_cannot_complete_another_criterion_with_same_items.test_artifact_cannot_complete_another_criterion_with_same_items",
+              "test_core.ObservatoryTests.test_cli_reproduces_results.test_cli_reproduces_results",
+              "test_core.ObservatoryTests.test_completed_task_does_not_stall.test_completed_task_does_not_stall",
+              "test_harness.HarnessTests.test_controls_separate_lexical_signal_without_entering_main_matrix.test_controls_separate_lexical_signal_without_entering_main_matrix",
+              "test_core.ObservatoryTests.test_cosmetic_is_not_progress.test_cosmetic_is_not_progress",
+              "test_recheck.RecheckTests.test_deep_json_is_an_evidence_error.test_deep_json_is_an_evidence_error",
+              "test_recheck.RecheckTests.test_duplicate_items_reach_the_item_guard.test_duplicate_items_reach_the_item_guard",
+              "test_core.ObservatoryTests.test_duplicate_json_key_with_correct_last_value_is_rejected.test_duplicate_json_key_with_correct_last_value_is_rejected",
+              "test_recheck.RecheckTests.test_empty_and_partial_item_sets_do_not_complete_a_criterion.test_empty_and_partial_item_sets_do_not_complete_a_criterion",
+              "test_harness.HarnessTests.test_exported_separate_inputs_reproduce_recorded_decisions.test_exported_separate_inputs_reproduce_recorded_decisions",
+              "test_recheck.RecheckTests.test_identical_duplicate_json_keys_are_rejected.test_identical_duplicate_json_keys_are_rejected",
+              "test_core.ObservatoryTests.test_json_duplicate_and_malformed_artifacts.test_json_duplicate_and_malformed_artifacts",
+              "test_core.ObservatoryTests.test_recomputed_agent_digest_cannot_replace_harness_pin.test_recomputed_agent_digest_cannot_replace_harness_pin",
+              "test_core.ObservatoryTests.test_relabelled_task_bytes_do_not_match_original_pin.test_relabelled_task_bytes_do_not_match_original_pin",
+              "test_core.ObservatoryTests.test_repeated_errors_have_explicit_priority.test_repeated_errors_have_explicit_priority",
+              "test_core.ObservatoryTests.test_report_escapes_script.test_report_escapes_script",
+              "test_core.ObservatoryTests.test_sparse_checkpoint_limit_is_visible.test_sparse_checkpoint_limit_is_visible",
+              "test_core.ObservatoryTests.test_summary_svg_uses_measured_counts.test_summary_svg_uses_measured_counts",
+              "test_core.ObservatoryTests.test_superset_artifact_does_not_satisfy_exact_criterion.test_superset_artifact_does_not_satisfy_exact_criterion",
+              "test_core.ObservatoryTests.test_tampered_missing_and_wrong_task.test_tampered_missing_and_wrong_task",
+              "test_core.ObservatoryTests.test_unpinned_artifact_cannot_certify_itself.test_unpinned_artifact_cannot_certify_itself",
+              "test_core.ObservatoryTests.test_validator_ablation.test_validator_ablation",
+              "test_core.ObservatoryTests.test_wait_does_not_hide_corrupt_evidence.test_wait_does_not_hide_corrupt_evidence"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/evidence_always_reject",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/evidence_always_reject",
+            "explanation": "",
+            "failing_tests": [
+              "test_core.ObservatoryTests.test_actual_items_reordered_is_same_criterion.test_actual_items_reordered_is_same_criterion",
+              "test_harness.HarnessTests.test_all_generated_files_use_lf_and_regenerate_identically.test_all_generated_files_use_lf_and_regenerate_identically",
+              "test_core.ObservatoryTests.test_artifact_cannot_complete_another_criterion_with_same_items.test_artifact_cannot_complete_another_criterion_with_same_items",
+              "test_harness.HarnessTests.test_cadence_records_the_policy_that_executed.test_cadence_records_the_policy_that_executed",
+              "test_harness.HarnessTests.test_cadence_three_status_events_exposes_five_alerts.test_cadence_three_status_events_exposes_five_alerts",
+              "test_core.ObservatoryTests.test_cli_reproduces_results.test_cli_reproduces_results",
+              "test_core.ObservatoryTests.test_completed_task_does_not_stall.test_completed_task_does_not_stall",
+              "test_harness.HarnessTests.test_controls_separate_lexical_signal_without_entering_main_matrix.test_controls_separate_lexical_signal_without_entering_main_matrix",
+              "test_recheck.RecheckTests.test_deep_json_is_an_evidence_error.test_deep_json_is_an_evidence_error",
+              "test_recheck.RecheckTests.test_duplicate_items_reach_the_item_guard.test_duplicate_items_reach_the_item_guard",
+              "test_core.ObservatoryTests.test_duplicate_json_key_with_correct_last_value_is_rejected.test_duplicate_json_key_with_correct_last_value_is_rejected",
+              "test_recheck.RecheckTests.test_empty_and_partial_item_sets_do_not_complete_a_criterion.test_empty_and_partial_item_sets_do_not_complete_a_criterion",
+              "test_harness.HarnessTests.test_exported_separate_inputs_reproduce_recorded_decisions.test_exported_separate_inputs_reproduce_recorded_decisions",
+              "test_recheck.RecheckTests.test_identical_duplicate_json_keys_are_rejected.test_identical_duplicate_json_keys_are_rejected",
+              "test_core.ObservatoryTests.test_json_duplicate_and_malformed_artifacts.test_json_duplicate_and_malformed_artifacts",
+              "test_core.ObservatoryTests.test_metric_accounting.test_metric_accounting",
+              "test_core.ObservatoryTests.test_recomputed_agent_digest_cannot_replace_harness_pin.test_recomputed_agent_digest_cannot_replace_harness_pin",
+              "test_core.ObservatoryTests.test_relabelled_task_bytes_do_not_match_original_pin.test_relabelled_task_bytes_do_not_match_original_pin",
+              "test_core.ObservatoryTests.test_repeated_errors_have_explicit_priority.test_repeated_errors_have_explicit_priority",
+              "test_core.ObservatoryTests.test_replayed_milestone.test_replayed_milestone",
+              "test_core.ObservatoryTests.test_report_escapes_script.test_report_escapes_script",
+              "test_core.ObservatoryTests.test_sparse_checkpoint_limit_is_visible.test_sparse_checkpoint_limit_is_visible",
+              "test_core.ObservatoryTests.test_summary_svg_uses_measured_counts.test_summary_svg_uses_measured_counts",
+              "test_core.ObservatoryTests.test_superset_artifact_does_not_satisfy_exact_criterion.test_superset_artifact_does_not_satisfy_exact_criterion",
+              "test_core.ObservatoryTests.test_tampered_missing_and_wrong_task.test_tampered_missing_and_wrong_task",
+              "test_recheck.RecheckTests.test_text_and_artifact_byte_limits.test_text_and_artifact_byte_limits",
+              "test_core.ObservatoryTests.test_unpinned_artifact_cannot_certify_itself.test_unpinned_artifact_cannot_certify_itself",
+              "test_core.ObservatoryTests.test_verified_work_can_repeat_words.test_verified_work_can_repeat_words",
+              "test_core.ObservatoryTests.test_wait_does_not_hide_corrupt_evidence.test_wait_does_not_hide_corrupt_evidence"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/digest_check_removed",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/digest_check_removed",
+            "explanation": "",
+            "failing_tests": [
+              "test_harness.HarnessTests.test_all_generated_files_use_lf_and_regenerate_identically.test_all_generated_files_use_lf_and_regenerate_identically",
+              "test_core.ObservatoryTests.test_cli_reproduces_results.test_cli_reproduces_results",
+              "test_harness.HarnessTests.test_controls_separate_lexical_signal_without_entering_main_matrix.test_controls_separate_lexical_signal_without_entering_main_matrix",
+              "test_harness.HarnessTests.test_exported_separate_inputs_reproduce_recorded_decisions.test_exported_separate_inputs_reproduce_recorded_decisions",
+              "test_core.ObservatoryTests.test_recomputed_agent_digest_cannot_replace_harness_pin.test_recomputed_agent_digest_cannot_replace_harness_pin",
+              "test_core.ObservatoryTests.test_relabelled_task_bytes_do_not_match_original_pin.test_relabelled_task_bytes_do_not_match_original_pin",
+              "test_core.ObservatoryTests.test_report_escapes_script.test_report_escapes_script",
+              "test_core.ObservatoryTests.test_sparse_checkpoint_limit_is_visible.test_sparse_checkpoint_limit_is_visible",
+              "test_core.ObservatoryTests.test_summary_svg_uses_measured_counts.test_summary_svg_uses_measured_counts",
+              "test_core.ObservatoryTests.test_tampered_missing_and_wrong_task.test_tampered_missing_and_wrong_task",
+              "test_core.ObservatoryTests.test_wait_does_not_hide_corrupt_evidence.test_wait_does_not_hide_corrupt_evidence"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/task_identity_check_removed",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/task_identity_check_removed",
+            "explanation": "",
+            "failing_tests": [
+              "test_core.ObservatoryTests.test_tampered_missing_and_wrong_task.test_tampered_missing_and_wrong_task"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/item_set_equality_to_subset [was SURVIVOR]",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/item_set_equality_to_subset [was SURVIVOR]",
+            "explanation": "",
+            "failing_tests": [
+              "test_recheck.RecheckTests.test_empty_and_partial_item_sets_do_not_complete_a_criterion.test_empty_and_partial_item_sets_do_not_complete_a_criterion",
+              "test_core.ObservatoryTests.test_superset_artifact_does_not_satisfy_exact_criterion.test_superset_artifact_does_not_satisfy_exact_criterion"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/duplicate_key_hook_removed [was SURVIVOR]",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/duplicate_key_hook_removed [was SURVIVOR]",
+            "explanation": "",
+            "failing_tests": [
+              "test_core.ObservatoryTests.test_duplicate_json_key_with_correct_last_value_is_rejected.test_duplicate_json_key_with_correct_last_value_is_rejected",
+              "test_recheck.RecheckTests.test_identical_duplicate_json_keys_are_rejected.test_identical_duplicate_json_keys_are_rejected"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/duplicate_items_allowed",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/duplicate_items_allowed",
+            "explanation": "",
+            "failing_tests": [
+              "test_recheck.RecheckTests.test_duplicate_items_reach_the_item_guard.test_duplicate_items_reach_the_item_guard"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/replayed_criterion_counts",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/replayed_criterion_counts",
+            "explanation": "",
+            "failing_tests": [
+              "test_core.ObservatoryTests.test_replayed_milestone.test_replayed_milestone"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/wait_never_expires",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/wait_never_expires",
+            "explanation": "",
+            "failing_tests": [
+              "test_core.ObservatoryTests.test_authorized_wait_resets_existing_idle_count.test_authorized_wait_resets_existing_idle_count",
+              "test_harness.HarnessTests.test_controls_separate_lexical_signal_without_entering_main_matrix.test_controls_separate_lexical_signal_without_entering_main_matrix",
+              "test_core.ObservatoryTests.test_wait_expiry.test_wait_expiry",
+              "test_recheck.RecheckTests.test_wait_resets_an_already_alerting_clock.test_wait_resets_an_already_alerting_clock"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/wait_expiry_off_by_one",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/wait_expiry_off_by_one",
+            "explanation": "",
+            "failing_tests": [
+              "test_core.ObservatoryTests.test_authorized_wait_resets_existing_idle_count.test_authorized_wait_resets_existing_idle_count",
+              "test_harness.HarnessTests.test_controls_separate_lexical_signal_without_entering_main_matrix.test_controls_separate_lexical_signal_without_entering_main_matrix",
+              "test_core.ObservatoryTests.test_wait_expiry.test_wait_expiry",
+              "test_recheck.RecheckTests.test_wait_resets_an_already_alerting_clock.test_wait_resets_an_already_alerting_clock"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/wait_horizon_unbounded_event_side",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/wait_horizon_unbounded_event_side",
+            "explanation": "",
+            "failing_tests": [
+              "test_recheck.RecheckTests.test_event_wait_horizon_is_exact.test_event_wait_horizon_is_exact"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/wait_declaration_no_reset [was SURVIVOR]",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/wait_declaration_no_reset [was SURVIVOR]",
+            "explanation": "",
+            "failing_tests": [
+              "test_core.ObservatoryTests.test_authorized_wait_resets_existing_idle_count.test_authorized_wait_resets_existing_idle_count",
+              "test_recheck.RecheckTests.test_wait_resets_an_already_alerting_clock.test_wait_resets_an_already_alerting_clock"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/agent_may_declare_wait",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/agent_may_declare_wait",
+            "explanation": "",
+            "failing_tests": [
+              "test_core.ObservatoryTests.test_wait_requires_controller_role_label.test_wait_requires_controller_role_label"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/stall_window_off_by_one",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/stall_window_off_by_one",
+            "explanation": "",
+            "failing_tests": [
+              "test_recheck.RecheckTests.test_agent_cannot_jump_to_a_future_authorized_wait.test_agent_cannot_jump_to_a_future_authorized_wait",
+              "test_harness.HarnessTests.test_all_generated_files_use_lf_and_regenerate_identically.test_all_generated_files_use_lf_and_regenerate_identically",
+              "test_recheck.RecheckTests.test_alternating_messages_do_not_match_both_predecessors.test_alternating_messages_do_not_match_both_predecessors",
+              "test_core.ObservatoryTests.test_authorized_wait_resets_existing_idle_count.test_authorized_wait_resets_existing_idle_count",
+              "test_harness.HarnessTests.test_cadence_comparator_has_same_budget_and_no_accepted_milestones.test_cadence_comparator_has_same_budget_and_no_accepted_milestones",
+              "test_harness.HarnessTests.test_cadence_records_the_policy_that_executed.test_cadence_records_the_policy_that_executed",
+              "test_harness.HarnessTests.test_cadence_three_status_events_exposes_five_alerts.test_cadence_three_status_events_exposes_five_alerts",
+              "test_core.ObservatoryTests.test_cli_reproduces_results.test_cli_reproduces_results",
+              "test_harness.HarnessTests.test_controls_separate_lexical_signal_without_entering_main_matrix.test_controls_separate_lexical_signal_without_entering_main_matrix",
+              "test_core.ObservatoryTests.test_exact_loop.test_exact_loop",
+              "test_harness.HarnessTests.test_exported_separate_inputs_reproduce_recorded_decisions.test_exported_separate_inputs_reproduce_recorded_decisions",
+              "test_core.ObservatoryTests.test_paraphrase_loop.test_paraphrase_loop",
+              "test_core.ObservatoryTests.test_replayed_milestone.test_replayed_milestone",
+              "test_core.ObservatoryTests.test_report_escapes_script.test_report_escapes_script",
+              "test_core.ObservatoryTests.test_sparse_checkpoint_limit_is_visible.test_sparse_checkpoint_limit_is_visible",
+              "test_core.ObservatoryTests.test_summary_svg_uses_measured_counts.test_summary_svg_uses_measured_counts",
+              "test_core.ObservatoryTests.test_wait_expiry.test_wait_expiry",
+              "test_recheck.RecheckTests.test_wait_resets_an_already_alerting_clock.test_wait_resets_an_already_alerting_clock"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/complete_branch_removed",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/complete_branch_removed",
+            "explanation": "",
+            "failing_tests": [
+              "test_core.ObservatoryTests.test_completed_task_does_not_stall.test_completed_task_does_not_stall"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/error_precedence_swapped",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/error_precedence_swapped",
+            "explanation": "",
+            "failing_tests": [
+              "test_core.ObservatoryTests.test_wait_does_not_hide_corrupt_evidence.test_wait_does_not_hide_corrupt_evidence"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/lexical_threshold_shifted [was SURVIVOR]",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/lexical_threshold_shifted [was SURVIVOR]",
+            "explanation": "",
+            "failing_tests": [
+              "test_recheck.RecheckTests.test_lexical_neighbours_below_the_policy_do_not_alert.test_lexical_neighbours_below_the_policy_do_not_alert",
+              "test_core.ObservatoryTests.test_lexical_threshold_is_inclusive_and_separates_signals.test_lexical_threshold_is_inclusive_and_separates_signals"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/unknown_criterion_allowed",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/unknown_criterion_allowed",
+            "explanation": "",
+            "failing_tests": [
+              "test_core.ObservatoryTests.test_unknown_criterion_rejected.test_unknown_criterion_rejected"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/trace_schema_open",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/trace_schema_open",
+            "explanation": "",
+            "failing_tests": [
+              "test_core.ObservatoryTests.test_trace_cannot_supply_policy.test_trace_cannot_supply_policy"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/spec_task_binding_removed",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/spec_task_binding_removed",
+            "explanation": "",
+            "failing_tests": [
+              "test_recheck.RecheckTests.test_spec_task_binding_rejects_an_otherwise_valid_trace.test_spec_task_binding_rejects_an_otherwise_valid_trace"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/wait_authorization_removed",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/wait_authorization_removed",
+            "explanation": "",
+            "failing_tests": [
+              "test_core.ObservatoryTests.test_controller_label_cannot_authorize_wait.test_controller_label_cannot_authorize_wait",
+              "test_recheck.RecheckTests.test_fixture_wait_policy_does_not_copy_agent_events.test_fixture_wait_policy_does_not_copy_agent_events",
+              "test_core.ObservatoryTests.test_wait_must_match_pinned_declaration.test_wait_must_match_pinned_declaration"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/wait_authorization_id_only",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/wait_authorization_id_only",
+            "explanation": "",
+            "failing_tests": [
+              "test_recheck.RecheckTests.test_fixture_wait_policy_does_not_copy_agent_events.test_fixture_wait_policy_does_not_copy_agent_events",
+              "test_core.ObservatoryTests.test_wait_must_match_pinned_declaration.test_wait_must_match_pinned_declaration"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/unpinned_self_certifies",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/unpinned_self_certifies",
+            "explanation": "",
+            "failing_tests": [
+              "test_core.ObservatoryTests.test_unpinned_artifact_cannot_certify_itself.test_unpinned_artifact_cannot_certify_itself"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/store_manifest_allowed",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/store_manifest_allowed",
+            "explanation": "",
+            "failing_tests": [
+              "test_core.ObservatoryTests.test_recomputed_agent_digest_cannot_replace_harness_pin.test_recomputed_agent_digest_cannot_replace_harness_pin"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/controller_role_limit_removed",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/controller_role_limit_removed",
+            "explanation": "",
+            "failing_tests": [
+              "test_recheck.RecheckTests.test_controller_role_cannot_label_a_message_or_result.test_controller_role_cannot_label_a_message_or_result"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/pin_format_check_removed",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/pin_format_check_removed",
+            "explanation": "",
+            "failing_tests": [
+              "test_recheck.RecheckTests.test_pin_format_has_its_own_rejection.test_pin_format_has_its_own_rejection"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/criterion_binding_removed",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/criterion_binding_removed",
+            "explanation": "",
+            "failing_tests": [
+              "test_core.ObservatoryTests.test_artifact_cannot_complete_another_criterion_with_same_items.test_artifact_cannot_complete_another_criterion_with_same_items"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/W1_items_subset_accepted",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/W1_items_subset_accepted",
+            "explanation": "",
+            "failing_tests": [
+              "test_recheck.RecheckTests.test_empty_and_partial_item_sets_do_not_complete_a_criterion.test_empty_and_partial_item_sets_do_not_complete_a_criterion"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/W2_wait_reset_partial",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/W2_wait_reset_partial",
+            "explanation": "",
+            "failing_tests": [
+              "test_recheck.RecheckTests.test_wait_resets_an_already_alerting_clock.test_wait_resets_an_already_alerting_clock"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/W3_lexical_threshold_0_86",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/W3_lexical_threshold_0_86",
+            "explanation": "",
+            "failing_tests": [
+              "test_recheck.RecheckTests.test_lexical_neighbours_below_the_policy_do_not_alert.test_lexical_neighbours_below_the_policy_do_not_alert"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/W4_stall_window_off_by_one_after_wait",
+            "before_status": "caught",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/W4_stall_window_off_by_one_after_wait",
+            "explanation": "",
+            "failing_tests": [
+              "test_core.ObservatoryTests.test_authorized_wait_resets_existing_idle_count.test_authorized_wait_resets_existing_idle_count",
+              "test_harness.HarnessTests.test_controls_separate_lexical_signal_without_entering_main_matrix.test_controls_separate_lexical_signal_without_entering_main_matrix",
+              "test_core.ObservatoryTests.test_wait_expiry.test_wait_expiry",
+              "test_recheck.RecheckTests.test_wait_resets_an_already_alerting_clock.test_wait_resets_an_already_alerting_clock"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/W5_exact_any",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/W5_exact_any",
+            "explanation": "",
+            "failing_tests": [
+              "test_recheck.RecheckTests.test_alternating_messages_do_not_match_both_predecessors.test_alternating_messages_do_not_match_both_predecessors"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/W6_lexical_any",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/W6_lexical_any",
+            "explanation": "",
+            "failing_tests": [
+              "test_recheck.RecheckTests.test_alternating_messages_do_not_match_both_predecessors.test_alternating_messages_do_not_match_both_predecessors"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/W7_duplicate_key_only_if_conflicting",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/ablations_v2/W7_duplicate_key_only_if_conflicting",
+            "explanation": "",
+            "failing_tests": [
+              "test_recheck.RecheckTests.test_identical_duplicate_json_keys_are_rejected.test_identical_duplicate_json_keys_are_rejected"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/ablations_v2/W8_wait_horizon_off_by_one_spec_only",
+            "before_status": "survived",
+            "after_status": "survived",
+            "classification": "equivalent",
+            "name": "SO/ablations_v2/W8_wait_horizon_off_by_one_spec_only",
+            "explanation": "",
+            "failing_tests": []
+          },
+          {
+            "reviewer_case_id": "SO/supplementary_mutants/both_wait_horizons_removed",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/supplementary_mutants/both_wait_horizons_removed",
+            "explanation": "",
+            "failing_tests": [
+              "test_recheck.RecheckTests.test_event_wait_horizon_is_exact.test_event_wait_horizon_is_exact",
+              "test_recheck.RecheckTests.test_trusted_wait_horizon_is_exact.test_trusted_wait_horizon_is_exact"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/supplementary_mutants/items_subset_accepted_empty_artifact",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/supplementary_mutants/items_subset_accepted_empty_artifact",
+            "explanation": "",
+            "failing_tests": [
+              "test_recheck.RecheckTests.test_empty_and_partial_item_sets_do_not_complete_a_criterion.test_empty_and_partial_item_sets_do_not_complete_a_criterion"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/supplementary_mutants/duplicate_items_allowed",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/supplementary_mutants/duplicate_items_allowed",
+            "explanation": "",
+            "failing_tests": [
+              "test_recheck.RecheckTests.test_duplicate_items_reach_the_item_guard.test_duplicate_items_reach_the_item_guard"
+            ]
+          },
+          {
+            "reviewer_case_id": "SO/supplementary_mutants/spec_task_binding_removed",
+            "before_status": "survived",
+            "after_status": "caught",
+            "classification": "assertion",
+            "name": "SO/supplementary_mutants/spec_task_binding_removed",
+            "explanation": "",
+            "failing_tests": [
+              "test_recheck.RecheckTests.test_spec_task_binding_rejects_an_otherwise_valid_trace.test_spec_task_binding_rejects_an_otherwise_valid_trace"
+            ]
+          }
+        ],
+        "before": {
+          "tested": 39,
+          "caught": 23,
+          "survived": 16,
+          "inconclusive": 0
+        },
+        "after": {
+          "tested": 39,
+          "caught": 38,
+          "survived": 1,
+          "inconclusive": 0
+        }
+      }
+    ],
+    "before": {
+      "tested": 176,
+      "caught": 118,
+      "survived": 58,
+      "inconclusive": 0
+    },
+    "after": {
+      "tested": 176,
+      "caught": 167,
+      "survived": 9,
+      "inconclusive": 0
+    }
+  },
+  "curated": {
+    "scope": "Curated contract mutations; not exhaustive test coverage or proof of comment truth",
+    "contracts": [
+      {
+        "package": "continuity-ledger",
+        "id": "CL-GATE-WIRING",
+        "claim": "The shared replay runner applies the gate to a naturally stale reader proposal.",
+        "finding": "CL-01/CL-03",
+        "tests": [
+          "test_review_regressions.ReviewRegressions.test_natural_control_traverses_run_and_real_ablation"
+        ],
+        "caught": true,
+        "source": "continuity/__main__.py",
+        "source_sha256": "09bd7bb3b4bd7029aff4d4c8e55190ca3881ff1a2a22b3f35acc8b27727acab0"
+      },
+      {
+        "package": "continuity-ledger",
+        "id": "CL-EXACT-BINDING",
+        "claim": "Edited current-head text cannot pass with a genuine event identity.",
+        "finding": "CL-02",
+        "tests": [
+          "test_review_regressions.ReviewRegressions.test_current_head_forgery_is_unbound"
+        ],
+        "caught": true,
+        "source": "continuity/core.py",
+        "source_sha256": "4105b699109c3d32f1097d13fcbe02e4ccee64f40b9ce5e5dcf9839c278c400e"
+      },
+      {
+        "package": "continuity-ledger",
+        "id": "CL-UTF8-PACK",
+        "claim": "Selection obeys the UTF-8 byte budget even when characters and bytes differ.",
+        "finding": "CL-07",
+        "tests": [
+          "test_review_regressions.ReviewRegressions.test_unicode_changes_record_selection"
+        ],
+        "caught": true,
+        "source": "continuity/core.py",
+        "source_sha256": "4105b699109c3d32f1097d13fcbe02e4ccee64f40b9ce5e5dcf9839c278c400e"
+      },
+      {
+        "package": "continuity-ledger",
+        "id": "CL-WORKER-SCHEMA",
+        "claim": "The parent rejects undeclared evaluator fields before transport.",
+        "finding": "CL-06",
+        "tests": [
+          "test_review_regressions.ReviewRegressions.test_worker_rejects_label_fields"
+        ],
+        "caught": true,
+        "source": "continuity/__main__.py",
+        "source_sha256": "09bd7bb3b4bd7029aff4d4c8e55190ca3881ff1a2a22b3f35acc8b27727acab0"
+      },
+      {
+        "package": "continuity-ledger",
+        "id": "CL-PID-BOUNDARY",
+        "claim": "Same-process replies cannot be reported as fresh-process evidence.",
+        "finding": "CL-15",
+        "tests": [
+          "test_review_regressions.ReviewRegressions.test_same_process_reply_is_rejected"
+        ],
+        "caught": true,
+        "source": "continuity/__main__.py",
+        "source_sha256": "09bd7bb3b4bd7029aff4d4c8e55190ca3881ff1a2a22b3f35acc8b27727acab0"
+      },
+      {
+        "package": "continuity-ledger",
+        "id": "CL-RESTORE-INPUT",
+        "claim": "Actual restore requests exclude evaluation labels.",
+        "finding": "CL-06",
+        "tests": [
+          "test_review_regressions.ReviewRegressions.test_run_worker_input_contract_and_label_timing"
+        ],
+        "caught": true,
+        "source": "continuity/__main__.py",
+        "source_sha256": "09bd7bb3b4bd7029aff4d4c8e55190ca3881ff1a2a22b3f35acc8b27727acab0"
+      },
+      {
+        "package": "continuity-ledger",
+        "id": "CL-PROPOSE-INPUT",
+        "claim": "Actual propose requests contain only the operation and selected context.",
+        "finding": "CL-06",
+        "tests": [
+          "test_review_regressions.ReviewRegressions.test_run_worker_input_contract_and_label_timing"
+        ],
+        "caught": true,
+        "source": "continuity/__main__.py",
+        "source_sha256": "09bd7bb3b4bd7029aff4d4c8e55190ca3881ff1a2a22b3f35acc8b27727acab0"
+      },
+      {
+        "package": "continuity-ledger",
+        "id": "CL-STALE-HEAD",
+        "claim": "An exact older source is reported as stale, including when a later approval leaves the task active.",
+        "finding": "CL-01",
+        "tests": [
+          "test_core.LedgerTests.test_revocation_overrides_previous_approval",
+          "test_recheck_properties.RecheckProperties.test_active_task_still_requires_latest_authority"
+        ],
+        "caught": true,
+        "source": "continuity/core.py",
+        "source_sha256": "4105b699109c3d32f1097d13fcbe02e4ccee64f40b9ce5e5dcf9839c278c400e"
+      },
+      {
+        "package": "adapter-promotion-gate",
+        "id": "PG-SERVE-FRESHNESS",
+        "claim": "Serving independently rechecks evidence age",
+        "finding": "PG-04",
+        "tests": [
+          "test_review.ReviewTests.test_evidence_expires_after_approval"
+        ],
+        "caught": true,
+        "source": "promotion_gate/core.py",
+        "source_sha256": "318fd8296060596430dd194df3af9d6bb73527b672fca19207f6fb8eb48be41a"
+      },
+      {
+        "package": "adapter-promotion-gate",
+        "id": "PG-CANARY-ID",
+        "claim": "Unknown canary identifiers stop at closed-suite validation",
+        "finding": "PG-11",
+        "tests": [
+          "test_review.ReviewTests.test_unknown_canary_rejected_on_admit"
+        ],
+        "caught": true,
+        "source": "promotion_gate/core.py",
+        "source_sha256": "318fd8296060596430dd194df3af9d6bb73527b672fca19207f6fb8eb48be41a"
+      },
+      {
+        "package": "adapter-promotion-gate",
+        "id": "PG-UNCHANGED",
+        "claim": "Byte-identical candidate is not admitted",
+        "finding": "PG-11",
+        "tests": [
+          "test_review.ReviewTests.test_unchanged_candidate_rejected"
+        ],
+        "caught": true,
+        "source": "promotion_gate/core.py",
+        "source_sha256": "318fd8296060596430dd194df3af9d6bb73527b672fca19207f6fb8eb48be41a"
+      },
+      {
+        "package": "adapter-promotion-gate",
+        "id": "PG-WRITE-VALIDATION",
+        "claim": "Private next state is validated before any temporary-file write",
+        "finding": "PG-02",
+        "tests": [
+          "test_review.ReviewTests.test_invalid_private_state_never_replaces_registry"
+        ],
+        "caught": true,
+        "source": "promotion_gate/core.py",
+        "source_sha256": "318fd8296060596430dd194df3af9d6bb73527b672fca19207f6fb8eb48be41a"
+      },
+      {
+        "package": "adapter-promotion-gate",
+        "id": "PG-AUDIT-BINDING",
+        "claim": "Stored lifecycle must match the recorded audit",
+        "finding": "PG-12",
+        "tests": [
+          "test_review.ReviewTests.test_audit_must_bind_lifecycle_state"
+        ],
+        "caught": true,
+        "source": "promotion_gate/core.py",
+        "source_sha256": "318fd8296060596430dd194df3af9d6bb73527b672fca19207f6fb8eb48be41a"
+      },
+      {
+        "package": "adapter-promotion-gate",
+        "id": "PG-ROLLBACK-REVOCATION",
+        "claim": "Rollback revokes prior approval",
+        "finding": "PG-01",
+        "tests": [
+          "test_review.ReviewTests.test_rollback_revokes_approval"
+        ],
+        "caught": true,
+        "source": "promotion_gate/core.py",
+        "source_sha256": "318fd8296060596430dd194df3af9d6bb73527b672fca19207f6fb8eb48be41a"
+      },
+      {
+        "package": "adapter-promotion-gate",
+        "id": "PG-METRIC-WIRING",
+        "claim": "Actual admission calls strict numeric validation before thresholds",
+        "finding": "PG-10",
+        "tests": [
+          "test_review.ReviewTests.test_invalid_metrics_rejected_on_admit_path"
+        ],
+        "caught": true,
+        "source": "promotion_gate/core.py",
+        "source_sha256": "318fd8296060596430dd194df3af9d6bb73527b672fca19207f6fb8eb48be41a"
+      },
+      {
+        "package": "adapter-promotion-gate",
+        "id": "PG-GALLERY-OBSERVATION",
+        "claim": "Gallery success is derived from actual persisted rollback state",
+        "finding": "PG-06",
+        "tests": [
+          "test_review.ReviewTests.test_gallery_detects_disconnected_rollback"
+        ],
+        "caught": true,
+        "source": "promotion_gate/demo.py",
+        "source_sha256": "61557d9dbac8fbd40a04396f8813d5d256f8c734c6719a5ef0e89db13a69ad78"
+      },
+      {
+        "package": "adapter-promotion-gate",
+        "id": "PG-HEADROOM",
+        "claim": "Admission reserves remaining lifecycle storage before accepting a near-full registry",
+        "finding": "PG-03",
+        "tests": [
+          "test_review.ReviewTests.test_near_full_registry_reserves_complete_lifecycle"
+        ],
+        "caught": true,
+        "source": "promotion_gate/core.py",
+        "source_sha256": "318fd8296060596430dd194df3af9d6bb73527b672fca19207f6fb8eb48be41a"
+      },
+      {
+        "package": "registry-metric-lab",
+        "id": "RM-GEO-FILTER",
+        "claim": "The country filter limits the full emitted group list.",
+        "finding": "RM-06",
+        "tests": [
+          "test_metrics.AggregationTests.test_country_filter"
+        ],
+        "caught": true,
+        "source": "registry_metrics/core.py",
+        "source_sha256": "8d5c386a9b2963d222e063b4071fc172c463a0e88664a6de328659f354c00c23"
+      },
+      {
+        "package": "registry-metric-lab",
+        "id": "RM-IDENTITY",
+        "claim": "Joined multiplicity cannot weight the corrected trial cohort.",
+        "finding": "RM-05",
+        "tests": [
+          "test_metrics.AggregationTests.test_duplicate_site_invariance"
+        ],
+        "caught": true,
+        "source": "registry_metrics/core.py",
+        "source_sha256": "8d5c386a9b2963d222e063b4071fc172c463a0e88664a6de328659f354c00c23"
+      },
+      {
+        "package": "registry-metric-lab",
+        "id": "RM-BAR-LABEL",
+        "claim": "Bar labels name the method that produced the value.",
+        "finding": "RM-05",
+        "tests": [
+          "test_review_regressions.ReviewTests.test_bar_geometry_and_labels"
+        ],
+        "caught": true,
+        "source": "registry_metrics/report.py",
+        "source_sha256": "c2756b2ed0a1dd6cf86767d3cc15ab3ac314bed9e4cfec83048d040abdbadce5"
+      },
+      {
+        "package": "registry-metric-lab",
+        "id": "RM-BAR-ORIGIN",
+        "claim": "Both bars begin at the zero origin.",
+        "finding": "RM-05",
+        "tests": [
+          "test_review_regressions.ReviewTests.test_bar_geometry_and_labels"
+        ],
+        "caught": true,
+        "source": "registry_metrics/report.py",
+        "source_sha256": "c2756b2ed0a1dd6cf86767d3cc15ab3ac314bed9e4cfec83048d040abdbadce5"
+      },
+      {
+        "package": "registry-metric-lab",
+        "id": "RM-EDGE",
+        "claim": "Each edge begins at its own source trial.",
+        "finding": "RM-05",
+        "tests": [
+          "test_review_regressions.ReviewTests.test_provenance_edges_and_duplicate_marker"
+        ],
+        "caught": true,
+        "source": "registry_metrics/report.py",
+        "source_sha256": "c2756b2ed0a1dd6cf86767d3cc15ab3ac314bed9e4cfec83048d040abdbadce5"
+      },
+      {
+        "package": "registry-metric-lab",
+        "id": "RM-DUPLICATE",
+        "claim": "Repeated identities are visibly marked.",
+        "finding": "RM-05",
+        "tests": [
+          "test_review_regressions.ReviewTests.test_provenance_edges_and_duplicate_marker"
+        ],
+        "caught": true,
+        "source": "registry_metrics/report.py",
+        "source_sha256": "c2756b2ed0a1dd6cf86767d3cc15ab3ac314bed9e4cfec83048d040abdbadce5"
+      },
+      {
+        "package": "registry-metric-lab",
+        "id": "RM-DISPLAY",
+        "claim": "Display preserves exact integer differences.",
+        "finding": "RM-04",
+        "tests": [
+          "test_review_regressions.ReviewTests.test_exact_integer_display"
+        ],
+        "caught": true,
+        "source": "registry_metrics/report.py",
+        "source_sha256": "c2756b2ed0a1dd6cf86767d3cc15ab3ac314bed9e4cfec83048d040abdbadce5"
+      },
+      {
+        "package": "registry-metric-lab",
+        "id": "RM-MEDIAN",
+        "claim": "Median triangles are bound to actual recorded values.",
+        "finding": "RM-05",
+        "tests": [
+          "test_review_regressions.ReviewTests.test_median_markers_use_actual_medians"
+        ],
+        "caught": true,
+        "source": "registry_metrics/report.py",
+        "source_sha256": "c2756b2ed0a1dd6cf86767d3cc15ab3ac314bed9e4cfec83048d040abdbadce5"
+      },
+      {
+        "package": "stagnation-observatory",
+        "id": "SO-EXACT-ITEMS",
+        "claim": "A superset cannot satisfy the exact item-set criterion.",
+        "finding": "SO-03",
+        "tests": [
+          "test_core.ObservatoryTests.test_superset_artifact_does_not_satisfy_exact_criterion"
+        ],
+        "caught": true,
+        "source": "observatory/core.py",
+        "source_sha256": "42063548e1644ffd5f61ea2fc8f78229ac460ff631a75acbb2301c002b7357a5"
+      },
+      {
+        "package": "stagnation-observatory",
+        "id": "SO-WAIT-RESET",
+        "claim": "An authorized wait resets an already accumulated idle count.",
+        "finding": "SO-03/SO-06",
+        "tests": [
+          "test_core.ObservatoryTests.test_authorized_wait_resets_existing_idle_count"
+        ],
+        "caught": true,
+        "source": "observatory/core.py",
+        "source_sha256": "42063548e1644ffd5f61ea2fc8f78229ac460ff631a75acbb2301c002b7357a5"
+      },
+      {
+        "package": "stagnation-observatory",
+        "id": "SO-DUPLICATE-JSON",
+        "claim": "Duplicate keys are rejected even when the last task identity is correct.",
+        "finding": "SO-03",
+        "tests": [
+          "test_core.ObservatoryTests.test_duplicate_json_key_with_correct_last_value_is_rejected"
+        ],
+        "caught": true,
+        "source": "observatory/core.py",
+        "source_sha256": "42063548e1644ffd5f61ea2fc8f78229ac460ff631a75acbb2301c002b7357a5"
+      },
+      {
+        "package": "stagnation-observatory",
+        "id": "SO-LEXICAL-THRESHOLD",
+        "claim": "The development lexical baseline is inclusive at 0.88 and rejects 0.84.",
+        "finding": "SO-03",
+        "tests": [
+          "test_core.ObservatoryTests.test_lexical_threshold_is_inclusive_and_separates_signals"
+        ],
+        "caught": true,
+        "source": "observatory/core.py",
+        "source_sha256": "42063548e1644ffd5f61ea2fc8f78229ac460ff631a75acbb2301c002b7357a5"
+      },
+      {
+        "package": "stagnation-observatory",
+        "id": "SO-EVIDENCE-WIRING",
+        "claim": "Normal replay uses the evidence checker instead of accepting every result claim.",
+        "finding": "SO-01",
+        "tests": [
+          "test_core.ObservatoryTests.test_cosmetic_is_not_progress"
+        ],
+        "caught": true,
+        "source": "observatory/core.py",
+        "source_sha256": "42063548e1644ffd5f61ea2fc8f78229ac460ff631a75acbb2301c002b7357a5"
+      },
+      {
+        "package": "stagnation-observatory",
+        "id": "SO-SEPARATE-PIN",
+        "claim": "Recomputed agent-side hashes cannot replace the separately pinned digest.",
+        "finding": "SO-01",
+        "tests": [
+          "test_core.ObservatoryTests.test_recomputed_agent_digest_cannot_replace_harness_pin"
+        ],
+        "caught": true,
+        "source": "observatory/core.py",
+        "source_sha256": "42063548e1644ffd5f61ea2fc8f78229ac460ff631a75acbb2301c002b7357a5"
+      },
+      {
+        "package": "stagnation-observatory",
+        "id": "SO-CRITERION-BINDING",
+        "claim": "An artifact cannot satisfy a different criterion merely because item sets match.",
+        "finding": "SO-07",
+        "tests": [
+          "test_core.ObservatoryTests.test_artifact_cannot_complete_another_criterion_with_same_items"
+        ],
+        "caught": true,
+        "source": "observatory/core.py",
+        "source_sha256": "42063548e1644ffd5f61ea2fc8f78229ac460ff631a75acbb2301c002b7357a5"
+      }
+    ],
+    "totals": {
+      "continuity-ledger": {
+        "caught": 8,
+        "tested": 8
+      },
+      "adapter-promotion-gate": {
+        "caught": 9,
+        "tested": 9
+      },
+      "registry-metric-lab": {
+        "caught": 8,
+        "tested": 8
+      },
+      "stagnation-observatory": {
+        "caught": 7,
+        "tested": 7
+      }
+    },
+    "limitations": [
+      {
+        "package": "continuity-ledger",
+        "limit": "Fixture-sensitive packing is not general memory quality."
+      },
+      {
+        "package": "adapter-promotion-gate",
+        "limit": "Local role labels are not an authenticated release service."
+      },
+      {
+        "package": "registry-metric-lab",
+        "limit": "Whole-trial totals do not measure patients enrolled in a country."
+      },
+      {
+        "package": "stagnation-observatory",
+        "limit": "Healthy work can alert before its next verifiable milestone."
+      }
+    ]
+  },
+  "source_sha256": {
+    "adapter-promotion-gate/promotion_gate/__init__.py": "3836d037f07ce29ab090f18bc3fa46baf8ffa8bbc751535fc7d602daceb0dbed",
+    "adapter-promotion-gate/promotion_gate/core.py": "318fd8296060596430dd194df3af9d6bb73527b672fca19207f6fb8eb48be41a",
+    "adapter-promotion-gate/promotion_gate/demo.py": "61557d9dbac8fbd40a04396f8813d5d256f8c734c6719a5ef0e89db13a69ad78",
+    "adapter-promotion-gate/promotion_gate/visuals.py": "f1acee1f4cda7876b3017dc9a5ab5cc18e7af530de26a335b9f35a30b3d4c84b",
+    "adapter-promotion-gate/tests/inspect_visuals.py": "392d60074f41c8fc39cbe56275a496fe317a7c7b3ed13435e4a9228e194c54c7",
+    "adapter-promotion-gate/tests/test_gate.py": "e81df85b8fec52e43e1e58b89ec8e28b5b59437a3c4edcae49faaefa19d02ad6",
+    "adapter-promotion-gate/tests/test_predecessor_identity.py": "3691845624c1c7e0079f1edb7e10fde6dc808badb14242d550c69a29b8d21c58",
+    "adapter-promotion-gate/tests/test_recheck.py": "09e911e3627b9e2cfe73cbe22d30b2fbc2c65d6e8462e351904d66d9702c2476",
+    "adapter-promotion-gate/tests/test_review.py": "36946a97d218572cccc64b300b8a7fb608cc17d70a19ee8910c56f007b0cb52d",
+    "adapter-promotion-gate/tests/test_visuals.py": "99bef4201f19115f04d5dfe4b1959d275f05d24a14ea478da6a04220132d6db5",
+    "adapter-promotion-gate/tests/verify_artifacts.py": "281b243c49f434615929b0bf54a48e5df4fbff57687171ab717dc1b78b6cf57b",
+    "continuity-ledger/continuity/__init__.py": "16ccc2277dddd28d916187aec0a0116e54c9e751c9dcec34f7a7acd69be7d9a0",
+    "continuity-ledger/continuity/__main__.py": "09bd7bb3b4bd7029aff4d4c8e55190ca3881ff1a2a22b3f35acc8b27727acab0",
+    "continuity-ledger/continuity/core.py": "4105b699109c3d32f1097d13fcbe02e4ccee64f40b9ce5e5dcf9839c278c400e",
+    "continuity-ledger/continuity/diagnostics.py": "5cad2e7c61b142c76a519ae862c1a7ff15a40e37e0e31c3e9bc40f4da47ba514",
+    "continuity-ledger/continuity/fixtures.py": "fe1eb6b2fdc7785e0d8ba328b206bcb870a9b231d3b4df9858485b5cb8e1e1e9",
+    "continuity-ledger/continuity/report.py": "a935feb6eccb629bd4810fb6334b5333ab385d76a9b3122f93ec1e42ad97b5b1",
+    "continuity-ledger/continuity/storage.py": "8ec12dc6d678f6320ca4319cba9edaecbbab5f3478b5f38f1fe21deba931dedf",
+    "continuity-ledger/continuity/visuals.py": "1a2211e16de8e06c646f52375ad8cf0fa5b99a184c1f2cf33560b5b581a9448f",
+    "continuity-ledger/continuity/worker.py": "4184f9a93f3ec621956fdad8d696de422480253db28a22e8c34f06ae3e85e96f",
+    "continuity-ledger/tests/inspect_report.py": "2f233eef7a38f9e9f630323f5df8a587a898339908f2fac6a734f55464c85b4c",
+    "continuity-ledger/tests/inspect_visuals.py": "17e009a6d0de34aba9c39cb084a2d3d8d7087ef282e96f876bba1001e40a0387",
+    "continuity-ledger/tests/test_core.py": "19a0a77d98a7f695d08c470a91d60b698fa07a799ebda9014bebc2de76817f90",
+    "continuity-ledger/tests/test_recheck_properties.py": "0a9aaf4ed270e53c577c91a8d6e4d44ce86e53dff36b9f7cb99851425c4c56b8",
+    "continuity-ledger/tests/test_review_regressions.py": "10c9ad126d6a71a4a1c944076933497b72d98d97a051692b6ce54876b6143ed9",
+    "continuity-ledger/tests/test_visuals.py": "b4e02b2df03fbc92b1f1c2a93cd849a23504866f8633bb90894920f5b2876360",
+    "registry-metric-lab/registry_metrics/__init__.py": "4d344596760a19afbc1b8c55d1a059730772d0906756d4aec208b4841046dcce",
+    "registry-metric-lab/registry_metrics/__main__.py": "f56d5316aa32d8ed83196e56543d5c703aaf7a01e22504d3c469e96af55824a2",
+    "registry-metric-lab/registry_metrics/core.py": "8d5c386a9b2963d222e063b4071fc172c463a0e88664a6de328659f354c00c23",
+    "registry-metric-lab/registry_metrics/fixtures.py": "9c7bb02bfbe7e83e74dcbcbd62fce81ebdd49b8af4d00f5f1bb73ff660fd20f5",
+    "registry-metric-lab/registry_metrics/report.py": "c2756b2ed0a1dd6cf86767d3cc15ab3ac314bed9e4cfec83048d040abdbadce5",
+    "registry-metric-lab/tests/inspect_report.py": "3f7a883f118cf70057170c22fe3e7fc375b4d418b5d13f12ec77e9abd9e2fcef",
+    "registry-metric-lab/tests/test_metrics.py": "1c59ba27365bf62f82ccd20ee071c5d8859e0e97911956b26df8f88cbbcf7fcd",
+    "registry-metric-lab/tests/test_recheck_figures.py": "09eaa3d42d0d8c5a09112fc620e65a7bd05f708f5288747e575ec735c910158c",
+    "registry-metric-lab/tests/test_review_regressions.py": "daf17068b230b0228dc4c78311cb5a1d38717fc40ceb1fbed853603cb24d2eeb",
+    "registry-metric-lab/tests/verify_artifacts.py": "864029efdf0e7df54894f07868520a853e004def1b855fddca165ddcfbac9140",
+    "stagnation-observatory/observatory/__init__.py": "c9f27c5c9ea47fe2f87224e3c9680e3eaa54696b88a50a79248a126fdd149066",
+    "stagnation-observatory/observatory/__main__.py": "dbb37540bb91fe1473260fdddc975ed2b8ae71e724d57e72586d5f4b664f59ab",
+    "stagnation-observatory/observatory/core.py": "42063548e1644ffd5f61ea2fc8f78229ac460ff631a75acbb2301c002b7357a5",
+    "stagnation-observatory/observatory/fixtures.py": "3a06bf66b336a67d43c00bfc94dfef415fe230656cc902fe087ee7e14d13548d",
+    "stagnation-observatory/observatory/report.py": "ce4d6ea73c66f5cc9e4a98d341cb917b2d2461b3a6af56fe6113e260cafe3705",
+    "stagnation-observatory/qa/inspect_report.py": "1b5eab65b7b3e7b3a9ce931f7f8f2a174e24f8c413c86aed3a9ef4483153b992",
+    "stagnation-observatory/tests/inspect_report.py": "5c9782fa25e6627eaf7ef36987932c1a89b3a9ae58c9d534b81ae47a485a3405",
+    "stagnation-observatory/tests/test_core.py": "94d5eddb19880be9ca80b60c9f7755cb3023ab8b72963ab44741c9ebbffa915e",
+    "stagnation-observatory/tests/test_harness.py": "6e02b1b5991f32c6d6254d02f35b982943abca2bea650757b39b87a49511ae80",
+    "stagnation-observatory/tests/test_recheck.py": "c0f7c5ea108a2a9f8601963ed2aae4b17bea378dbeafb5dbe9589ce5bf48a35e",
+    "stagnation-observatory/tests/test_report.py": "352a1ed1c6ac038a8f3330cec89d4bc9eb1c4808e3805cc7c3e755bd92577b4b"
+  },
+  "input_artifact_sha256": {
+    "held-out-round-3.json": "493f1b7f8dbc9ec866e9c3779a45ee99f2ba1b7a772d78ee3edbb2abab7561d2",
+    "outside-review.json": "a498c2046e6925507a927f87edc30480b00eec1c48cacf07799553548c418a71",
+    "guard-matrix.json": "4965e90778e66993f105da1cd38eca49390ec5f3ba8219649c42789775803fd2"
+  },
+  "source_figures_sha256": {
+    "held-out-round-3.svg": "5af26c7d3cdf7a82ff8231fc7e34a392c4ee4ca047467fa2be6e3e1b66cb04f8",
+    "outside-review.svg": "4668ebdd35b592d05d4b71e5b1e24bcdeeaf680322fbe438469fceed1a021573",
+    "guard-matrix.svg": "6ee21a37e9381907e1ffcb76976095543dd1f4745cd39108a5af00693af8a573"
+  },
+  "figures_sha256": {
+    "held-out-round-3.svg": "bdb1b2c33abcd0881b0365b9ff5abd9a659b1e1607e1b7aabac9100e37c757b6",
+    "outside-review.svg": "e40302eff7d5b773d09ffa522c18840a09694866fd90944294d2c6a1bd2aa156",
+    "guard-matrix.svg": "a0ab4bea7eb268c66bfc9edf3ef570a66af2d33b367fa46ddc2c21d67b21d465"
+  },
+  "figure_presentation": "Public copies change palette only; geometry, labels and case outcomes match the archived figures.",
+  "suite_context": {
+    "scope": "Flame independently reproduced the unchanged package suites.",
+    "packages": {
+      "continuity-ledger": 61,
+      "adapter-promotion-gate": 68,
+      "registry-metric-lab": 46,
+      "stagnation-observatory": 70
+    },
+    "total": 245
+  }
+}

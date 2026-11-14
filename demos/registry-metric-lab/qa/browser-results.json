@@ -1,0 +1,18 @@
+[
+  {
+    "width": 1440,
+    "scenarios_verified": 9,
+    "errors": [],
+    "external_requests": [],
+    "page_overflow": false,
+    "unique_dom_ids": true
+  },
+  {
+    "width": 390,
+    "scenarios_verified": 9,
+    "errors": [],
+    "external_requests": [],
+    "page_overflow": false,
+    "unique_dom_ids": true
+  }
+]

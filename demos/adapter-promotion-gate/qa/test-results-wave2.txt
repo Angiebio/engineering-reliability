@@ -1,0 +1,37 @@
+test_admission_is_only_shadow (test_gate.GateTests.test_admission_is_only_shadow) ... ok
+test_authorization (test_gate.GateTests.test_authorization) ... ok
+test_canary_bool_is_strict (test_gate.GateTests.test_canary_bool_is_strict) ... ok
+test_capacity_preserves_bytes (test_gate.GateTests.test_capacity_preserves_bytes) ... ok
+test_duplicate_candidate (test_gate.GateTests.test_duplicate_candidate) ... ok
+test_duplicate_json_key (test_gate.GateTests.test_duplicate_json_key) ... ok
+test_empty_missing_duplicate_canaries (test_gate.GateTests.test_empty_missing_duplicate_canaries) ... ok
+test_failed_canary_beats_high_gain (test_gate.GateTests.test_failed_canary_beats_high_gain) ... ok
+test_html_escapes_fixture_text (test_gate.GateTests.test_html_escapes_fixture_text) ... ok
+test_interrupted_replace_preserves_bytes (test_gate.GateTests.test_interrupted_replace_preserves_bytes) ... ok
+test_lifecycle_and_exact_rollback (test_gate.GateTests.test_lifecycle_and_exact_rollback) ... ok
+test_lock_refuses_concurrent_writer (test_gate.GateTests.test_lock_refuses_concurrent_writer) ... ok
+test_manifest_and_artifact_tampering (test_gate.GateTests.test_manifest_and_artifact_tampering) ... ok
+test_metrics_reject_nan_inf_bool_and_ranges (test_gate.GateTests.test_metrics_reject_nan_inf_bool_and_ranges) ... ok
+test_missing_rollback_artifact (test_gate.GateTests.test_missing_rollback_artifact) ... ok
+test_nonfinite_json_literal (test_gate.GateTests.test_nonfinite_json_literal) ... ok
+test_paths_cannot_escape_bundle (test_gate.GateTests.test_paths_cannot_escape_bundle) ... ok
+test_public_gallery (test_gate.GateTests.test_public_gallery) ... ok
+test_registry_evidence_fields (test_gate.GateTests.test_registry_evidence_fields) ... ok
+test_registry_schema_validation (test_gate.GateTests.test_registry_schema_validation) ... ok
+test_rollback_integrity (test_gate.GateTests.test_rollback_integrity) ... ok
+test_shadow_cannot_serve (test_gate.GateTests.test_shadow_cannot_serve) ... ok
+test_stale_and_future_evidence (test_gate.GateTests.test_stale_and_future_evidence) ... ok
+test_stale_approved_candidate_cannot_serve (test_gate.GateTests.test_stale_approved_candidate_cannot_serve) ... ok
+test_stale_baseline (test_gate.GateTests.test_stale_baseline) ... ok
+test_stale_evidence_cannot_be_approved (test_gate.GateTests.test_stale_evidence_cannot_be_approved) ... ok
+test_threshold_equality_passes (test_gate.GateTests.test_threshold_equality_passes) ... ok
+test_threshold_failures (test_gate.GateTests.test_threshold_failures) ... ok
+test_denial_adds_no_successful_audit_transition (test_visuals.VisualTests.test_denial_adds_no_successful_audit_transition) ... ok
+test_graph_tracks_rollback_and_serving_separately (test_visuals.VisualTests.test_graph_tracks_rollback_and_serving_separately) ... ok
+test_unknown_or_inconsistent_audit_fails (test_visuals.VisualTests.test_unknown_or_inconsistent_audit_fails) ... ok
+test_visual_json_is_inert_and_names_scope (test_visuals.VisualTests.test_visual_json_is_inert_and_names_scope) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 1.020s
+
+OK

@@ -1,0 +1,11 @@
+[project]
+name = "stagnation-observatory"
+version = "0.1.0"
+description = "Evidence-driven agent progress and bounded-wait replay demonstration"
+requires-python = ">=3.11"
+dependencies = []
+license = "MIT"
+authors = [{name = "The Real Cat Labs"}]
+
+[tool.ruff]
+line-length = 120

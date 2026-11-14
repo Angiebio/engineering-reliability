@@ -1,0 +1,82 @@
+{
+  "trace01": {},
+  "trace02": {},
+  "trace03": {},
+  "trace04": {},
+  "trace05": {},
+  "trace06": {},
+  "trace07": {},
+  "trace08": {},
+  "trace09": {
+    "output1": "{\"criterion_id\":\"stage1\",\"items\":[\"section1\"],\"task_id\":\"packet09\"}",
+    "output2": "{\"criterion_id\":\"stage2\",\"items\":[\"section1\",\"section2\"],\"task_id\":\"packet09\"}",
+    "output3": "{\"criterion_id\":\"stage3\",\"items\":[\"section1\",\"section2\",\"section3\"],\"task_id\":\"packet09\"}",
+    "output4": "{\"criterion_id\":\"stage4\",\"items\":[\"section1\",\"section2\",\"section3\",\"section4\"],\"task_id\":\"packet09\"}",
+    "output5": "{\"criterion_id\":\"stage5\",\"items\":[\"section1\",\"section2\",\"section3\",\"section4\",\"section5\"],\"task_id\":\"packet09\"}",
+    "output6": "{\"criterion_id\":\"stage6\",\"items\":[\"section1\",\"section2\",\"section3\",\"section4\",\"section5\",\"section6\"],\"task_id\":\"packet09\"}"
+  },
+  "trace10": {
+    "output1": "{\"criterion_id\":\"stage1\",\"items\":[\"section1\"],\"task_id\":\"packet10\"}",
+    "output2": "{\"criterion_id\":\"stage2\",\"items\":[\"section1\",\"section2\"],\"task_id\":\"packet10\"}",
+    "output3": "{\"criterion_id\":\"stage3\",\"items\":[\"section1\",\"section2\",\"section3\"],\"task_id\":\"packet10\"}",
+    "output4": "{\"criterion_id\":\"stage4\",\"items\":[\"section1\",\"section2\",\"section3\",\"section4\"],\"task_id\":\"packet10\"}",
+    "output5": "{\"criterion_id\":\"stage5\",\"items\":[\"section1\",\"section2\",\"section3\",\"section4\",\"section5\"],\"task_id\":\"packet10\"}",
+    "output6": "{\"criterion_id\":\"stage6\",\"items\":[\"section1\",\"section2\",\"section3\",\"section4\",\"section5\",\"section6\"],\"task_id\":\"packet10\"}"
+  },
+  "trace11": {
+    "output1": "{\"criterion_id\":\"stage1\",\"items\":[\"section1\"],\"task_id\":\"packet11\"}",
+    "output2": "{\"criterion_id\":\"stage2\",\"items\":[\"section1\",\"section2\"],\"task_id\":\"packet11\"}",
+    "output3": "{\"criterion_id\":\"stage3\",\"items\":[\"section1\",\"section2\",\"section3\"],\"task_id\":\"packet11\"}",
+    "output4": "{\"criterion_id\":\"stage4\",\"items\":[\"section1\",\"section2\",\"section3\",\"section4\"],\"task_id\":\"packet11\"}",
+    "output5": "{\"criterion_id\":\"stage5\",\"items\":[\"section1\",\"section2\",\"section3\",\"section4\",\"section5\"],\"task_id\":\"packet11\"}",
+    "output6": "{\"criterion_id\":\"stage6\",\"items\":[\"section1\",\"section2\",\"section3\",\"section4\",\"section5\",\"section6\"],\"task_id\":\"packet11\"}"
+  },
+  "trace12": {
+    "output1": "{\"criterion_id\":\"stage1\",\"items\":[\"section1\"],\"task_id\":\"packet12\"}",
+    "output2": "{\"criterion_id\":\"stage2\",\"items\":[\"section1\",\"section2\"],\"task_id\":\"packet12\"}",
+    "output3": "{\"criterion_id\":\"stage3\",\"items\":[\"section1\",\"section2\",\"section3\"],\"task_id\":\"packet12\"}",
+    "output4": "{\"criterion_id\":\"stage4\",\"items\":[\"section1\",\"section2\",\"section3\",\"section4\"],\"task_id\":\"packet12\"}",
+    "output5": "{\"criterion_id\":\"stage5\",\"items\":[\"section1\",\"section2\",\"section3\",\"section4\",\"section5\"],\"task_id\":\"packet12\"}",
+    "output6": "{\"criterion_id\":\"stage6\",\"items\":[\"section1\",\"section2\",\"section3\",\"section4\",\"section5\",\"section6\"],\"task_id\":\"packet12\"}"
+  },
+  "trace13": {},
+  "trace14": {},
+  "trace15": {},
+  "trace16": {},
+  "trace17": {
+    "output1": "{\"criterion_id\":\"stage1\",\"items\":[\"cosmetic1\"],\"task_id\":\"packet17\"}",
+    "output2": "{\"criterion_id\":\"stage2\",\"items\":[\"cosmetic2\"],\"task_id\":\"packet17\"}",
+    "output3": "{\"criterion_id\":\"stage3\",\"items\":[\"cosmetic3\"],\"task_id\":\"packet17\"}",
+    "output4": "{\"criterion_id\":\"stage4\",\"items\":[\"cosmetic4\"],\"task_id\":\"packet17\"}",
+    "output5": "{\"criterion_id\":\"stage5\",\"items\":[\"cosmetic5\"],\"task_id\":\"packet17\"}",
+    "output6": "{\"criterion_id\":\"stage6\",\"items\":[\"cosmetic6\"],\"task_id\":\"packet17\"}"
+  },
+  "trace18": {
+    "output1": "{\"criterion_id\":\"stage1\",\"items\":[\"cosmetic1\"],\"task_id\":\"packet18\"}",
+    "output2": "{\"criterion_id\":\"stage2\",\"items\":[\"cosmetic2\"],\"task_id\":\"packet18\"}",
+    "output3": "{\"criterion_id\":\"stage3\",\"items\":[\"cosmetic3\"],\"task_id\":\"packet18\"}",
+    "output4": "{\"criterion_id\":\"stage4\",\"items\":[\"cosmetic4\"],\"task_id\":\"packet18\"}",
+    "output5": "{\"criterion_id\":\"stage5\",\"items\":[\"cosmetic5\"],\"task_id\":\"packet18\"}",
+    "output6": "{\"criterion_id\":\"stage6\",\"items\":[\"cosmetic6\"],\"task_id\":\"packet18\"}"
+  },
+  "trace19": {
+    "output1": "{\"criterion_id\":\"stage1\",\"items\":[\"cosmetic1\"],\"task_id\":\"packet19\"}",
+    "output2": "{\"criterion_id\":\"stage2\",\"items\":[\"cosmetic2\"],\"task_id\":\"packet19\"}",
+    "output3": "{\"criterion_id\":\"stage3\",\"items\":[\"cosmetic3\"],\"task_id\":\"packet19\"}",
+    "output4": "{\"criterion_id\":\"stage4\",\"items\":[\"cosmetic4\"],\"task_id\":\"packet19\"}",
+    "output5": "{\"criterion_id\":\"stage5\",\"items\":[\"cosmetic5\"],\"task_id\":\"packet19\"}",
+    "output6": "{\"criterion_id\":\"stage6\",\"items\":[\"cosmetic6\"],\"task_id\":\"packet19\"}"
+  },
+  "trace20": {
+    "output1": "{\"criterion_id\":\"stage1\",\"items\":[\"cosmetic1\"],\"task_id\":\"packet20\"}",
+    "output2": "{\"criterion_id\":\"stage2\",\"items\":[\"cosmetic2\"],\"task_id\":\"packet20\"}",
+    "output3": "{\"criterion_id\":\"stage3\",\"items\":[\"cosmetic3\"],\"task_id\":\"packet20\"}",
+    "output4": "{\"criterion_id\":\"stage4\",\"items\":[\"cosmetic4\"],\"task_id\":\"packet20\"}",
+    "output5": "{\"criterion_id\":\"stage5\",\"items\":[\"cosmetic5\"],\"task_id\":\"packet20\"}",
+    "output6": "{\"criterion_id\":\"stage6\",\"items\":[\"cosmetic6\"],\"task_id\":\"packet20\"}"
+  },
+  "trace21": {},
+  "trace22": {},
+  "trace23": {},
+  "trace24": {}
+}

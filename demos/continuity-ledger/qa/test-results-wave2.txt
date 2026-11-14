@@ -1,0 +1,36 @@
+test_budget_includes_long_task_identifier_envelope (test_core.LedgerTests.test_budget_includes_long_task_identifier_envelope) ... ok
+test_byte_budget_and_unicode (test_core.LedgerTests.test_byte_budget_and_unicode) ... ok
+test_cli_end_to_end (test_core.LedgerTests.test_cli_end_to_end) ... ok
+test_context_cannot_mix_task_ids (test_core.LedgerTests.test_context_cannot_mix_task_ids) ... ok
+test_context_has_no_labels (test_core.LedgerTests.test_context_has_no_labels) ... ok
+test_cross_task_supersession (test_core.LedgerTests.test_cross_task_supersession) ... ok
+test_duplicate_and_reordered_events (test_core.LedgerTests.test_duplicate_and_reordered_events) ... ok
+test_empty_memory_abstains (test_core.LedgerTests.test_empty_memory_abstains) ... ok
+test_explicit_reopen_restores_eligibility (test_core.LedgerTests.test_explicit_reopen_restores_eligibility) ... ok
+test_external_content_cannot_authorize (test_core.LedgerTests.test_external_content_cannot_authorize) ... ok
+test_fixture_balance_and_expected_projection (test_core.LedgerTests.test_fixture_balance_and_expected_projection) ... ok
+test_forged_missing_and_cross_task_evidence (test_core.LedgerTests.test_forged_missing_and_cross_task_evidence) ... ok
+test_full_history_is_explicitly_unbudgeted (test_core.LedgerTests.test_full_history_is_explicitly_unbudgeted) ... ok
+test_integrity_and_replacement (test_core.LedgerTests.test_integrity_and_replacement) ... ok
+test_invalid_budget_and_strategy (test_core.LedgerTests.test_invalid_budget_and_strategy) ... ok
+test_invalid_transition_rejected (test_core.LedgerTests.test_invalid_transition_rejected) ... ok
+test_manifest_traversal_and_count_rejected (test_core.LedgerTests.test_manifest_traversal_and_count_rejected) ... ok
+test_missing_or_partial_snapshot_fails (test_core.LedgerTests.test_missing_or_partial_snapshot_fails) ... ok
+test_report_escapes_numeric_fields_and_uses_denominators (test_core.LedgerTests.test_report_escapes_numeric_fields_and_uses_denominators) ... ok
+test_report_escapes_untrusted_text (test_core.LedgerTests.test_report_escapes_untrusted_text) ... ok
+test_revocation_overrides_previous_approval (test_core.LedgerTests.test_revocation_overrides_previous_approval) ... ok
+test_stale_request_is_blocked_and_ablation_changes_outcome (test_core.LedgerTests.test_stale_request_is_blocked_and_ablation_changes_outcome) ... ok
+test_strict_schema_and_boolean_sequence (test_core.LedgerTests.test_strict_schema_and_boolean_sequence) ... ok
+test_subprocess_roundtrip_and_replay (test_core.LedgerTests.test_subprocess_roundtrip_and_replay) ... ok
+test_superseded_task_cannot_resume (test_core.LedgerTests.test_superseded_task_cannot_resume) ... ok
+test_worker_failure_is_not_scored_as_hold (test_core.LedgerTests.test_worker_failure_is_not_scored_as_hold) ... ok
+test_chart_uses_actual_denominator (test_visuals.VisualTests.test_chart_uses_actual_denominator) ... ok
+test_json_source_cannot_close_script (test_visuals.VisualTests.test_json_source_cannot_close_script) ... ok
+test_planted_control_is_separate_from_main_replay (test_visuals.VisualTests.test_planted_control_is_separate_from_main_replay) ... ok
+test_visual_does_not_invent_missing_history (test_visuals.VisualTests.test_visual_does_not_invent_missing_history) ... ok
+test_visual_source_and_retention_are_recorded_data (test_visuals.VisualTests.test_visual_source_and_retention_are_recorded_data) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 9.414s
+
+OK

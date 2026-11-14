@@ -1,0 +1,28 @@
+[
+  {
+    "width": 1440,
+    "page_errors": [],
+    "external_requests": [],
+    "page_overflow": false,
+    "scenarios": 26,
+    "frames_checked": 164,
+    "first_timeline_y": 580.03125,
+    "fixed_lane_labels": true,
+    "limitation_gap_px": 0.0,
+    "compact_figures_all_counts_visible": false,
+    "keyboard_and_svg_export": "passed"
+  },
+  {
+    "width": 390,
+    "page_errors": [],
+    "external_requests": [],
+    "page_overflow": false,
+    "scenarios": 26,
+    "frames_checked": 164,
+    "first_timeline_y": 880.390625,
+    "fixed_lane_labels": true,
+    "limitation_gap_px": 15.0,
+    "compact_figures_all_counts_visible": true,
+    "keyboard_and_svg_export": "passed"
+  }
+]

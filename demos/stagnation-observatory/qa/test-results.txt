@@ -1,0 +1,32 @@
+test_actual_items_reordered_is_same_criterion (test_core.ObservatoryTests.test_actual_items_reordered_is_same_criterion) ... ok
+test_cli_reproduces_results (test_core.ObservatoryTests.test_cli_reproduces_results) ... ok
+test_completed_task_does_not_stall (test_core.ObservatoryTests.test_completed_task_does_not_stall) ... ok
+test_cosmetic_is_not_progress (test_core.ObservatoryTests.test_cosmetic_is_not_progress) ... ok
+test_duplicate_out_of_order_and_wrong_task (test_core.ObservatoryTests.test_duplicate_out_of_order_and_wrong_task) ... ok
+test_event_schema_and_boolean_tick (test_core.ObservatoryTests.test_event_schema_and_boolean_tick) ... ok
+test_exact_loop (test_core.ObservatoryTests.test_exact_loop) ... ok
+test_fixture_balance (test_core.ObservatoryTests.test_fixture_balance) ... ok
+test_json_duplicate_and_malformed_artifacts (test_core.ObservatoryTests.test_json_duplicate_and_malformed_artifacts) ... ok
+test_metric_accounting (test_core.ObservatoryTests.test_metric_accounting) ... ok
+test_paraphrase_loop (test_core.ObservatoryTests.test_paraphrase_loop) ... ok
+test_repeated_errors_have_explicit_priority (test_core.ObservatoryTests.test_repeated_errors_have_explicit_priority) ... ok
+test_replay_is_deterministic (test_core.ObservatoryTests.test_replay_is_deterministic) ... ok
+test_replayed_milestone (test_core.ObservatoryTests.test_replayed_milestone) ... ok
+test_report_escapes_script (test_core.ObservatoryTests.test_report_escapes_script) ... ok
+test_sparse_checkpoint_limit_is_visible (test_core.ObservatoryTests.test_sparse_checkpoint_limit_is_visible) ... ok
+test_summary_svg_uses_measured_counts (test_core.ObservatoryTests.test_summary_svg_uses_measured_counts) ... ok
+test_tampered_missing_and_wrong_task (test_core.ObservatoryTests.test_tampered_missing_and_wrong_task) ... ok
+test_text_cannot_self_certify (test_core.ObservatoryTests.test_text_cannot_self_certify) ... ok
+test_unknown_criterion_rejected (test_core.ObservatoryTests.test_unknown_criterion_rejected) ... ok
+test_validator_ablation (test_core.ObservatoryTests.test_validator_ablation) ... ok
+test_verified_work_can_repeat_words (test_core.ObservatoryTests.test_verified_work_can_repeat_words) ... ok
+test_wait_cannot_be_agent_declared (test_core.ObservatoryTests.test_wait_cannot_be_agent_declared) ... ok
+test_wait_does_not_hide_corrupt_evidence (test_core.ObservatoryTests.test_wait_does_not_hide_corrupt_evidence) ... ok
+test_wait_expiry (test_core.ObservatoryTests.test_wait_expiry) ... ok
+test_wait_rejects_unbounded_or_empty_condition (test_core.ObservatoryTests.test_wait_rejects_unbounded_or_empty_condition) ... ok
+test_wait_respects_boundary (test_core.ObservatoryTests.test_wait_respects_boundary) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 0.195s
+
+OK

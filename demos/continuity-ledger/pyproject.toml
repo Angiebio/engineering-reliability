@@ -1,0 +1,14 @@
+[project]
+name = "continuity-ledger"
+version = "0.1.0"
+description = "Deterministic source-linked memory and authority boundary demonstration"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "The Real Cat Labs"}]
+dependencies = []
+
+[tool.ruff]
+line-length = 120
+
+# This source-first demonstration runs directly with python -m continuity.
+# It requires no packaging backend or dependency installation to reproduce.

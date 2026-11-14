@@ -1,0 +1,222 @@
+{
+  "trace01": {
+    "family": "exact_loop",
+    "variant": 0,
+    "positive_event_ids": [
+      "event3",
+      "event4",
+      "event5",
+      "event6"
+    ],
+    "title": "Exact loop · 1"
+  },
+  "trace02": {
+    "family": "exact_loop",
+    "variant": 1,
+    "positive_event_ids": [
+      "event3",
+      "event4",
+      "event5",
+      "event6"
+    ],
+    "title": "Exact loop · 2"
+  },
+  "trace03": {
+    "family": "exact_loop",
+    "variant": 2,
+    "positive_event_ids": [
+      "event3",
+      "event4",
+      "event5",
+      "event6"
+    ],
+    "title": "Exact loop · 3"
+  },
+  "trace04": {
+    "family": "exact_loop",
+    "variant": 3,
+    "positive_event_ids": [
+      "event3",
+      "event4",
+      "event5",
+      "event6"
+    ],
+    "title": "Exact loop · 4"
+  },
+  "trace05": {
+    "family": "paraphrase_loop",
+    "variant": 0,
+    "positive_event_ids": [
+      "event3",
+      "event4",
+      "event5",
+      "event6"
+    ],
+    "title": "Paraphrase loop · 1"
+  },
+  "trace06": {
+    "family": "paraphrase_loop",
+    "variant": 1,
+    "positive_event_ids": [
+      "event3",
+      "event4",
+      "event5",
+      "event6"
+    ],
+    "title": "Paraphrase loop · 2"
+  },
+  "trace07": {
+    "family": "paraphrase_loop",
+    "variant": 2,
+    "positive_event_ids": [
+      "event3",
+      "event4",
+      "event5",
+      "event6"
+    ],
+    "title": "Paraphrase loop · 3"
+  },
+  "trace08": {
+    "family": "paraphrase_loop",
+    "variant": 3,
+    "positive_event_ids": [
+      "event3",
+      "event4",
+      "event5",
+      "event6"
+    ],
+    "title": "Paraphrase loop · 4"
+  },
+  "trace09": {
+    "family": "verified_work",
+    "variant": 0,
+    "positive_event_ids": [],
+    "title": "Verified work · 1"
+  },
+  "trace10": {
+    "family": "verified_work",
+    "variant": 1,
+    "positive_event_ids": [],
+    "title": "Verified work · 2"
+  },
+  "trace11": {
+    "family": "verified_work",
+    "variant": 2,
+    "positive_event_ids": [],
+    "title": "Verified work · 3"
+  },
+  "trace12": {
+    "family": "verified_work",
+    "variant": 3,
+    "positive_event_ids": [],
+    "title": "Verified work · 4"
+  },
+  "trace13": {
+    "family": "legitimate_wait",
+    "variant": 0,
+    "positive_event_ids": [],
+    "title": "Legitimate wait · 1"
+  },
+  "trace14": {
+    "family": "legitimate_wait",
+    "variant": 1,
+    "positive_event_ids": [],
+    "title": "Legitimate wait · 2"
+  },
+  "trace15": {
+    "family": "legitimate_wait",
+    "variant": 2,
+    "positive_event_ids": [],
+    "title": "Legitimate wait · 3"
+  },
+  "trace16": {
+    "family": "legitimate_wait",
+    "variant": 3,
+    "positive_event_ids": [],
+    "title": "Legitimate wait · 4"
+  },
+  "trace17": {
+    "family": "cosmetic_work",
+    "variant": 0,
+    "positive_event_ids": [
+      "event3",
+      "event4",
+      "event5",
+      "event6"
+    ],
+    "title": "Cosmetic work · 1"
+  },
+  "trace18": {
+    "family": "cosmetic_work",
+    "variant": 1,
+    "positive_event_ids": [
+      "event3",
+      "event4",
+      "event5",
+      "event6"
+    ],
+    "title": "Cosmetic work · 2"
+  },
+  "trace19": {
+    "family": "cosmetic_work",
+    "variant": 2,
+    "positive_event_ids": [
+      "event3",
+      "event4",
+      "event5",
+      "event6"
+    ],
+    "title": "Cosmetic work · 3"
+  },
+  "trace20": {
+    "family": "cosmetic_work",
+    "variant": 3,
+    "positive_event_ids": [
+      "event3",
+      "event4",
+      "event5",
+      "event6"
+    ],
+    "title": "Cosmetic work · 4"
+  },
+  "trace21": {
+    "family": "expired_wait",
+    "variant": 0,
+    "positive_event_ids": [
+      "event6",
+      "event7",
+      "event8"
+    ],
+    "title": "Expired wait · 1"
+  },
+  "trace22": {
+    "family": "expired_wait",
+    "variant": 1,
+    "positive_event_ids": [
+      "event6",
+      "event7",
+      "event8"
+    ],
+    "title": "Expired wait · 2"
+  },
+  "trace23": {
+    "family": "expired_wait",
+    "variant": 2,
+    "positive_event_ids": [
+      "event6",
+      "event7",
+      "event8"
+    ],
+    "title": "Expired wait · 3"
+  },
+  "trace24": {
+    "family": "expired_wait",
+    "variant": 3,
+    "positive_event_ids": [
+      "event6",
+      "event7",
+      "event8"
+    ],
+    "title": "Expired wait · 4"
+  }
+}

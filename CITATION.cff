@@ -1,0 +1,43 @@
+# Engineering Reliability · CITATION.cff
+# How to cite this repository. GitHub reads this file and shows "Cite this repository".
+# The author list says who did the work, AI contributors included. Who each one is:
+# docs/READING-THE-RECORD.md.
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+type: software
+title: "Engineering Reliability: four demonstrations of engineering decisions in health data and AI agent systems"
+abstract: >-
+  Four small, deterministic demonstrations from The Real Cat Labs. Registry Metric Lab shows how a
+  site join inflates trial enrollment. Continuity Ledger separates remembered instructions from
+  current permission. Adapter Promotion Gate binds a model change to exact evidence before it can
+  serve. Stagnation Observatory checks agent progress against verified milestones and shows where
+  that check raises false alerts. Each demo has its own tests, an offline report, and comment claims
+  enforced by mutation tests.
+authors:
+  - family-names: Johnson
+    given-names: Angela N.
+    affiliation: The Real Cat Labs
+  - name: "Ying Akhila, with Terminal Voice (T.V.), AI implementation (The Real Cat Labs)"
+  - name: "Flame Johnson, AI reviewer (The Real Cat Labs)"
+version: 0.1.0
+date-released: "2026-11-14"
+license: MIT
+repository-code: "https://github.com/Angiebio/engineering-reliability"
+url: "https://github.com/Angiebio/engineering-reliability"
+keywords:
+  - software reliability
+  - health data
+  - AI agents
+  - change control
+  - mutation testing
+references:
+  - type: article
+    title: "What really happens when a dev vibes with the code? An empirical study on LLM behavioral divergence in response to expressive code comments"
+    authors:
+      - family-names: Johnson
+        given-names: Angela N.
+    journal: "Frontiers in Artificial Intelligence"
+    volume: 9
+    year: 2026
+    doi: "10.3389/frai.2026.1784973"
+    notes: "The pilot study that inspired the commenting convention used here."

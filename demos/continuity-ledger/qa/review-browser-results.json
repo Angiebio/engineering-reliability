@@ -1,0 +1,26 @@
+[
+  {
+    "width": 1440,
+    "recorded_outcomes_checked": 108,
+    "budget_points_checked": 57,
+    "minimum_timeline_label_px": 18.04890988372093,
+    "keyboard_strategy_change": true,
+    "source_text_expands": true,
+    "phone_budget_cards_and_readable_scope": false,
+    "page_errors": [],
+    "external_requests": [],
+    "page_overflow": false
+  },
+  {
+    "width": 390,
+    "recorded_outcomes_checked": 108,
+    "budget_points_checked": 57,
+    "minimum_timeline_label_px": 14,
+    "keyboard_strategy_change": true,
+    "source_text_expands": true,
+    "phone_budget_cards_and_readable_scope": true,
+    "page_errors": [],
+    "external_requests": [],
+    "page_overflow": false
+  }
+]

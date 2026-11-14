@@ -1,0 +1,986 @@
+{
+  "trace01": {
+    "task_id": "packet01",
+    "criteria": {
+      "stage1": [
+        "section1"
+      ],
+      "stage2": [
+        "section1",
+        "section2"
+      ],
+      "stage3": [
+        "section1",
+        "section2",
+        "section3"
+      ],
+      "stage4": [
+        "section1",
+        "section2",
+        "section3",
+        "section4"
+      ],
+      "stage5": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5"
+      ],
+      "stage6": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5",
+        "section6"
+      ]
+    },
+    "waits": {}
+  },
+  "trace02": {
+    "task_id": "packet02",
+    "criteria": {
+      "stage1": [
+        "section1"
+      ],
+      "stage2": [
+        "section1",
+        "section2"
+      ],
+      "stage3": [
+        "section1",
+        "section2",
+        "section3"
+      ],
+      "stage4": [
+        "section1",
+        "section2",
+        "section3",
+        "section4"
+      ],
+      "stage5": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5"
+      ],
+      "stage6": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5",
+        "section6"
+      ]
+    },
+    "waits": {}
+  },
+  "trace03": {
+    "task_id": "packet03",
+    "criteria": {
+      "stage1": [
+        "section1"
+      ],
+      "stage2": [
+        "section1",
+        "section2"
+      ],
+      "stage3": [
+        "section1",
+        "section2",
+        "section3"
+      ],
+      "stage4": [
+        "section1",
+        "section2",
+        "section3",
+        "section4"
+      ],
+      "stage5": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5"
+      ],
+      "stage6": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5",
+        "section6"
+      ]
+    },
+    "waits": {}
+  },
+  "trace04": {
+    "task_id": "packet04",
+    "criteria": {
+      "stage1": [
+        "section1"
+      ],
+      "stage2": [
+        "section1",
+        "section2"
+      ],
+      "stage3": [
+        "section1",
+        "section2",
+        "section3"
+      ],
+      "stage4": [
+        "section1",
+        "section2",
+        "section3",
+        "section4"
+      ],
+      "stage5": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5"
+      ],
+      "stage6": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5",
+        "section6"
+      ]
+    },
+    "waits": {}
+  },
+  "trace05": {
+    "task_id": "packet05",
+    "criteria": {
+      "stage1": [
+        "section1"
+      ],
+      "stage2": [
+        "section1",
+        "section2"
+      ],
+      "stage3": [
+        "section1",
+        "section2",
+        "section3"
+      ],
+      "stage4": [
+        "section1",
+        "section2",
+        "section3",
+        "section4"
+      ],
+      "stage5": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5"
+      ],
+      "stage6": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5",
+        "section6"
+      ]
+    },
+    "waits": {}
+  },
+  "trace06": {
+    "task_id": "packet06",
+    "criteria": {
+      "stage1": [
+        "section1"
+      ],
+      "stage2": [
+        "section1",
+        "section2"
+      ],
+      "stage3": [
+        "section1",
+        "section2",
+        "section3"
+      ],
+      "stage4": [
+        "section1",
+        "section2",
+        "section3",
+        "section4"
+      ],
+      "stage5": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5"
+      ],
+      "stage6": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5",
+        "section6"
+      ]
+    },
+    "waits": {}
+  },
+  "trace07": {
+    "task_id": "packet07",
+    "criteria": {
+      "stage1": [
+        "section1"
+      ],
+      "stage2": [
+        "section1",
+        "section2"
+      ],
+      "stage3": [
+        "section1",
+        "section2",
+        "section3"
+      ],
+      "stage4": [
+        "section1",
+        "section2",
+        "section3",
+        "section4"
+      ],
+      "stage5": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5"
+      ],
+      "stage6": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5",
+        "section6"
+      ]
+    },
+    "waits": {}
+  },
+  "trace08": {
+    "task_id": "packet08",
+    "criteria": {
+      "stage1": [
+        "section1"
+      ],
+      "stage2": [
+        "section1",
+        "section2"
+      ],
+      "stage3": [
+        "section1",
+        "section2",
+        "section3"
+      ],
+      "stage4": [
+        "section1",
+        "section2",
+        "section3",
+        "section4"
+      ],
+      "stage5": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5"
+      ],
+      "stage6": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5",
+        "section6"
+      ]
+    },
+    "waits": {}
+  },
+  "trace09": {
+    "task_id": "packet09",
+    "criteria": {
+      "stage1": [
+        "section1"
+      ],
+      "stage2": [
+        "section1",
+        "section2"
+      ],
+      "stage3": [
+        "section1",
+        "section2",
+        "section3"
+      ],
+      "stage4": [
+        "section1",
+        "section2",
+        "section3",
+        "section4"
+      ],
+      "stage5": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5"
+      ],
+      "stage6": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5",
+        "section6"
+      ]
+    },
+    "waits": {}
+  },
+  "trace10": {
+    "task_id": "packet10",
+    "criteria": {
+      "stage1": [
+        "section1"
+      ],
+      "stage2": [
+        "section1",
+        "section2"
+      ],
+      "stage3": [
+        "section1",
+        "section2",
+        "section3"
+      ],
+      "stage4": [
+        "section1",
+        "section2",
+        "section3",
+        "section4"
+      ],
+      "stage5": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5"
+      ],
+      "stage6": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5",
+        "section6"
+      ]
+    },
+    "waits": {}
+  },
+  "trace11": {
+    "task_id": "packet11",
+    "criteria": {
+      "stage1": [
+        "section1"
+      ],
+      "stage2": [
+        "section1",
+        "section2"
+      ],
+      "stage3": [
+        "section1",
+        "section2",
+        "section3"
+      ],
+      "stage4": [
+        "section1",
+        "section2",
+        "section3",
+        "section4"
+      ],
+      "stage5": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5"
+      ],
+      "stage6": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5",
+        "section6"
+      ]
+    },
+    "waits": {}
+  },
+  "trace12": {
+    "task_id": "packet12",
+    "criteria": {
+      "stage1": [
+        "section1"
+      ],
+      "stage2": [
+        "section1",
+        "section2"
+      ],
+      "stage3": [
+        "section1",
+        "section2",
+        "section3"
+      ],
+      "stage4": [
+        "section1",
+        "section2",
+        "section3",
+        "section4"
+      ],
+      "stage5": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5"
+      ],
+      "stage6": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5",
+        "section6"
+      ]
+    },
+    "waits": {}
+  },
+  "trace13": {
+    "task_id": "packet13",
+    "criteria": {
+      "stage1": [
+        "section1"
+      ],
+      "stage2": [
+        "section1",
+        "section2"
+      ],
+      "stage3": [
+        "section1",
+        "section2",
+        "section3"
+      ],
+      "stage4": [
+        "section1",
+        "section2",
+        "section3",
+        "section4"
+      ],
+      "stage5": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5"
+      ],
+      "stage6": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5",
+        "section6"
+      ]
+    },
+    "waits": {
+      "event1": {
+        "tick": 1,
+        "wait_until": 7,
+        "wake_condition": "Attachment service responds; otherwise expiry permits a new progress check."
+      }
+    }
+  },
+  "trace14": {
+    "task_id": "packet14",
+    "criteria": {
+      "stage1": [
+        "section1"
+      ],
+      "stage2": [
+        "section1",
+        "section2"
+      ],
+      "stage3": [
+        "section1",
+        "section2",
+        "section3"
+      ],
+      "stage4": [
+        "section1",
+        "section2",
+        "section3",
+        "section4"
+      ],
+      "stage5": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5"
+      ],
+      "stage6": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5",
+        "section6"
+      ]
+    },
+    "waits": {
+      "event1": {
+        "tick": 1,
+        "wait_until": 7,
+        "wake_condition": "Attachment service responds; otherwise expiry permits a new progress check."
+      }
+    }
+  },
+  "trace15": {
+    "task_id": "packet15",
+    "criteria": {
+      "stage1": [
+        "section1"
+      ],
+      "stage2": [
+        "section1",
+        "section2"
+      ],
+      "stage3": [
+        "section1",
+        "section2",
+        "section3"
+      ],
+      "stage4": [
+        "section1",
+        "section2",
+        "section3",
+        "section4"
+      ],
+      "stage5": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5"
+      ],
+      "stage6": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5",
+        "section6"
+      ]
+    },
+    "waits": {
+      "event1": {
+        "tick": 1,
+        "wait_until": 7,
+        "wake_condition": "Attachment service responds; otherwise expiry permits a new progress check."
+      }
+    }
+  },
+  "trace16": {
+    "task_id": "packet16",
+    "criteria": {
+      "stage1": [
+        "section1"
+      ],
+      "stage2": [
+        "section1",
+        "section2"
+      ],
+      "stage3": [
+        "section1",
+        "section2",
+        "section3"
+      ],
+      "stage4": [
+        "section1",
+        "section2",
+        "section3",
+        "section4"
+      ],
+      "stage5": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5"
+      ],
+      "stage6": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5",
+        "section6"
+      ]
+    },
+    "waits": {
+      "event1": {
+        "tick": 1,
+        "wait_until": 7,
+        "wake_condition": "Attachment service responds; otherwise expiry permits a new progress check."
+      }
+    }
+  },
+  "trace17": {
+    "task_id": "packet17",
+    "criteria": {
+      "stage1": [
+        "section1"
+      ],
+      "stage2": [
+        "section1",
+        "section2"
+      ],
+      "stage3": [
+        "section1",
+        "section2",
+        "section3"
+      ],
+      "stage4": [
+        "section1",
+        "section2",
+        "section3",
+        "section4"
+      ],
+      "stage5": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5"
+      ],
+      "stage6": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5",
+        "section6"
+      ]
+    },
+    "waits": {}
+  },
+  "trace18": {
+    "task_id": "packet18",
+    "criteria": {
+      "stage1": [
+        "section1"
+      ],
+      "stage2": [
+        "section1",
+        "section2"
+      ],
+      "stage3": [
+        "section1",
+        "section2",
+        "section3"
+      ],
+      "stage4": [
+        "section1",
+        "section2",
+        "section3",
+        "section4"
+      ],
+      "stage5": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5"
+      ],
+      "stage6": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5",
+        "section6"
+      ]
+    },
+    "waits": {}
+  },
+  "trace19": {
+    "task_id": "packet19",
+    "criteria": {
+      "stage1": [
+        "section1"
+      ],
+      "stage2": [
+        "section1",
+        "section2"
+      ],
+      "stage3": [
+        "section1",
+        "section2",
+        "section3"
+      ],
+      "stage4": [
+        "section1",
+        "section2",
+        "section3",
+        "section4"
+      ],
+      "stage5": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5"
+      ],
+      "stage6": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5",
+        "section6"
+      ]
+    },
+    "waits": {}
+  },
+  "trace20": {
+    "task_id": "packet20",
+    "criteria": {
+      "stage1": [
+        "section1"
+      ],
+      "stage2": [
+        "section1",
+        "section2"
+      ],
+      "stage3": [
+        "section1",
+        "section2",
+        "section3"
+      ],
+      "stage4": [
+        "section1",
+        "section2",
+        "section3",
+        "section4"
+      ],
+      "stage5": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5"
+      ],
+      "stage6": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5",
+        "section6"
+      ]
+    },
+    "waits": {}
+  },
+  "trace21": {
+    "task_id": "packet21",
+    "criteria": {
+      "stage1": [
+        "section1"
+      ],
+      "stage2": [
+        "section1",
+        "section2"
+      ],
+      "stage3": [
+        "section1",
+        "section2",
+        "section3"
+      ],
+      "stage4": [
+        "section1",
+        "section2",
+        "section3",
+        "section4"
+      ],
+      "stage5": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5"
+      ],
+      "stage6": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5",
+        "section6"
+      ]
+    },
+    "waits": {
+      "event1": {
+        "tick": 1,
+        "wait_until": 4,
+        "wake_condition": "Attachment service responds; otherwise expiry permits a new progress check."
+      }
+    }
+  },
+  "trace22": {
+    "task_id": "packet22",
+    "criteria": {
+      "stage1": [
+        "section1"
+      ],
+      "stage2": [
+        "section1",
+        "section2"
+      ],
+      "stage3": [
+        "section1",
+        "section2",
+        "section3"
+      ],
+      "stage4": [
+        "section1",
+        "section2",
+        "section3",
+        "section4"
+      ],
+      "stage5": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5"
+      ],
+      "stage6": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5",
+        "section6"
+      ]
+    },
+    "waits": {
+      "event1": {
+        "tick": 1,
+        "wait_until": 4,
+        "wake_condition": "Attachment service responds; otherwise expiry permits a new progress check."
+      }
+    }
+  },
+  "trace23": {
+    "task_id": "packet23",
+    "criteria": {
+      "stage1": [
+        "section1"
+      ],
+      "stage2": [
+        "section1",
+        "section2"
+      ],
+      "stage3": [
+        "section1",
+        "section2",
+        "section3"
+      ],
+      "stage4": [
+        "section1",
+        "section2",
+        "section3",
+        "section4"
+      ],
+      "stage5": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5"
+      ],
+      "stage6": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5",
+        "section6"
+      ]
+    },
+    "waits": {
+      "event1": {
+        "tick": 1,
+        "wait_until": 4,
+        "wake_condition": "Attachment service responds; otherwise expiry permits a new progress check."
+      }
+    }
+  },
+  "trace24": {
+    "task_id": "packet24",
+    "criteria": {
+      "stage1": [
+        "section1"
+      ],
+      "stage2": [
+        "section1",
+        "section2"
+      ],
+      "stage3": [
+        "section1",
+        "section2",
+        "section3"
+      ],
+      "stage4": [
+        "section1",
+        "section2",
+        "section3",
+        "section4"
+      ],
+      "stage5": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5"
+      ],
+      "stage6": [
+        "section1",
+        "section2",
+        "section3",
+        "section4",
+        "section5",
+        "section6"
+      ]
+    },
+    "waits": {
+      "event1": {
+        "tick": 1,
+        "wait_until": 4,
+        "wake_condition": "Attachment service responds; otherwise expiry permits a new progress check."
+      }
+    }
+  }
+}

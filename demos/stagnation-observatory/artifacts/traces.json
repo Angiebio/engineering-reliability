@@ -1,0 +1,1970 @@
+[
+  {
+    "trace_id": "trace01",
+    "task_id": "packet01",
+    "events": [
+      {
+        "event_id": "event1",
+        "task_id": "packet01",
+        "tick": 1,
+        "kind": "message",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event2",
+        "task_id": "packet01",
+        "tick": 2,
+        "kind": "message",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event3",
+        "task_id": "packet01",
+        "tick": 3,
+        "kind": "message",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event4",
+        "task_id": "packet01",
+        "tick": 4,
+        "kind": "message",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event5",
+        "task_id": "packet01",
+        "tick": 5,
+        "kind": "message",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event6",
+        "task_id": "packet01",
+        "tick": 6,
+        "kind": "message",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      }
+    ]
+  },
+  {
+    "trace_id": "trace02",
+    "task_id": "packet02",
+    "events": [
+      {
+        "event_id": "event1",
+        "task_id": "packet02",
+        "tick": 1,
+        "kind": "message",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event2",
+        "task_id": "packet02",
+        "tick": 2,
+        "kind": "message",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event3",
+        "task_id": "packet02",
+        "tick": 3,
+        "kind": "message",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event4",
+        "task_id": "packet02",
+        "tick": 4,
+        "kind": "message",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event5",
+        "task_id": "packet02",
+        "tick": 5,
+        "kind": "message",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event6",
+        "task_id": "packet02",
+        "tick": 6,
+        "kind": "message",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      }
+    ]
+  },
+  {
+    "trace_id": "trace03",
+    "task_id": "packet03",
+    "events": [
+      {
+        "event_id": "event1",
+        "task_id": "packet03",
+        "tick": 1,
+        "kind": "message",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event2",
+        "task_id": "packet03",
+        "tick": 2,
+        "kind": "message",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event3",
+        "task_id": "packet03",
+        "tick": 3,
+        "kind": "message",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event4",
+        "task_id": "packet03",
+        "tick": 4,
+        "kind": "message",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event5",
+        "task_id": "packet03",
+        "tick": 5,
+        "kind": "message",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event6",
+        "task_id": "packet03",
+        "tick": 6,
+        "kind": "message",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      }
+    ]
+  },
+  {
+    "trace_id": "trace04",
+    "task_id": "packet04",
+    "events": [
+      {
+        "event_id": "event1",
+        "task_id": "packet04",
+        "tick": 1,
+        "kind": "message",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event2",
+        "task_id": "packet04",
+        "tick": 2,
+        "kind": "message",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event3",
+        "task_id": "packet04",
+        "tick": 3,
+        "kind": "message",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event4",
+        "task_id": "packet04",
+        "tick": 4,
+        "kind": "message",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event5",
+        "task_id": "packet04",
+        "tick": 5,
+        "kind": "message",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event6",
+        "task_id": "packet04",
+        "tick": 6,
+        "kind": "message",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      }
+    ]
+  },
+  {
+    "trace_id": "trace05",
+    "task_id": "packet05",
+    "events": [
+      {
+        "event_id": "event1",
+        "task_id": "packet05",
+        "tick": 1,
+        "kind": "message",
+        "role": "agent",
+        "text": "I am reviewing the packet requirements.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event2",
+        "task_id": "packet05",
+        "tick": 2,
+        "kind": "message",
+        "role": "agent",
+        "text": "The next step remains collecting the same attachments.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event3",
+        "task_id": "packet05",
+        "tick": 3,
+        "kind": "message",
+        "role": "agent",
+        "text": "Document readiness deserves another careful pass.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event4",
+        "task_id": "packet05",
+        "tick": 4,
+        "kind": "message",
+        "role": "agent",
+        "text": "We should revisit what the reviewer still needs.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event5",
+        "task_id": "packet05",
+        "tick": 5,
+        "kind": "message",
+        "role": "agent",
+        "text": "My focus is on preparing materials for the handoff.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event6",
+        "task_id": "packet05",
+        "tick": 6,
+        "kind": "message",
+        "role": "agent",
+        "text": "Further attention to the packet is the current priority.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      }
+    ]
+  },
+  {
+    "trace_id": "trace06",
+    "task_id": "packet06",
+    "events": [
+      {
+        "event_id": "event1",
+        "task_id": "packet06",
+        "tick": 1,
+        "kind": "message",
+        "role": "agent",
+        "text": "The next step remains collecting the same attachments.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event2",
+        "task_id": "packet06",
+        "tick": 2,
+        "kind": "message",
+        "role": "agent",
+        "text": "Document readiness deserves another careful pass.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event3",
+        "task_id": "packet06",
+        "tick": 3,
+        "kind": "message",
+        "role": "agent",
+        "text": "We should revisit what the reviewer still needs.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event4",
+        "task_id": "packet06",
+        "tick": 4,
+        "kind": "message",
+        "role": "agent",
+        "text": "My focus is on preparing materials for the handoff.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event5",
+        "task_id": "packet06",
+        "tick": 5,
+        "kind": "message",
+        "role": "agent",
+        "text": "Further attention to the packet is the current priority.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event6",
+        "task_id": "packet06",
+        "tick": 6,
+        "kind": "message",
+        "role": "agent",
+        "text": "I am reviewing the packet requirements.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      }
+    ]
+  },
+  {
+    "trace_id": "trace07",
+    "task_id": "packet07",
+    "events": [
+      {
+        "event_id": "event1",
+        "task_id": "packet07",
+        "tick": 1,
+        "kind": "message",
+        "role": "agent",
+        "text": "Document readiness deserves another careful pass.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event2",
+        "task_id": "packet07",
+        "tick": 2,
+        "kind": "message",
+        "role": "agent",
+        "text": "We should revisit what the reviewer still needs.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event3",
+        "task_id": "packet07",
+        "tick": 3,
+        "kind": "message",
+        "role": "agent",
+        "text": "My focus is on preparing materials for the handoff.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event4",
+        "task_id": "packet07",
+        "tick": 4,
+        "kind": "message",
+        "role": "agent",
+        "text": "Further attention to the packet is the current priority.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event5",
+        "task_id": "packet07",
+        "tick": 5,
+        "kind": "message",
+        "role": "agent",
+        "text": "I am reviewing the packet requirements.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event6",
+        "task_id": "packet07",
+        "tick": 6,
+        "kind": "message",
+        "role": "agent",
+        "text": "The next step remains collecting the same attachments.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      }
+    ]
+  },
+  {
+    "trace_id": "trace08",
+    "task_id": "packet08",
+    "events": [
+      {
+        "event_id": "event1",
+        "task_id": "packet08",
+        "tick": 1,
+        "kind": "message",
+        "role": "agent",
+        "text": "We should revisit what the reviewer still needs.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event2",
+        "task_id": "packet08",
+        "tick": 2,
+        "kind": "message",
+        "role": "agent",
+        "text": "My focus is on preparing materials for the handoff.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event3",
+        "task_id": "packet08",
+        "tick": 3,
+        "kind": "message",
+        "role": "agent",
+        "text": "Further attention to the packet is the current priority.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event4",
+        "task_id": "packet08",
+        "tick": 4,
+        "kind": "message",
+        "role": "agent",
+        "text": "I am reviewing the packet requirements.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event5",
+        "task_id": "packet08",
+        "tick": 5,
+        "kind": "message",
+        "role": "agent",
+        "text": "The next step remains collecting the same attachments.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event6",
+        "task_id": "packet08",
+        "tick": 6,
+        "kind": "message",
+        "role": "agent",
+        "text": "Document readiness deserves another careful pass.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      }
+    ]
+  },
+  {
+    "trace_id": "trace09",
+    "task_id": "packet09",
+    "events": [
+      {
+        "event_id": "event1",
+        "task_id": "packet09",
+        "tick": 1,
+        "kind": "result",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": "stage1",
+        "artifact_id": "output1",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event2",
+        "task_id": "packet09",
+        "tick": 2,
+        "kind": "result",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": "stage2",
+        "artifact_id": "output2",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event3",
+        "task_id": "packet09",
+        "tick": 3,
+        "kind": "result",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": "stage3",
+        "artifact_id": "output3",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event4",
+        "task_id": "packet09",
+        "tick": 4,
+        "kind": "result",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": "stage4",
+        "artifact_id": "output4",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event5",
+        "task_id": "packet09",
+        "tick": 5,
+        "kind": "result",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": "stage5",
+        "artifact_id": "output5",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event6",
+        "task_id": "packet09",
+        "tick": 6,
+        "kind": "result",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": "stage6",
+        "artifact_id": "output6",
+        "wait_until": null,
+        "wake_condition": null
+      }
+    ]
+  },
+  {
+    "trace_id": "trace10",
+    "task_id": "packet10",
+    "events": [
+      {
+        "event_id": "event1",
+        "task_id": "packet10",
+        "tick": 1,
+        "kind": "result",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": "stage1",
+        "artifact_id": "output1",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event2",
+        "task_id": "packet10",
+        "tick": 2,
+        "kind": "result",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": "stage2",
+        "artifact_id": "output2",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event3",
+        "task_id": "packet10",
+        "tick": 3,
+        "kind": "result",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": "stage3",
+        "artifact_id": "output3",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event4",
+        "task_id": "packet10",
+        "tick": 4,
+        "kind": "result",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": "stage4",
+        "artifact_id": "output4",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event5",
+        "task_id": "packet10",
+        "tick": 5,
+        "kind": "result",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": "stage5",
+        "artifact_id": "output5",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event6",
+        "task_id": "packet10",
+        "tick": 6,
+        "kind": "result",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": "stage6",
+        "artifact_id": "output6",
+        "wait_until": null,
+        "wake_condition": null
+      }
+    ]
+  },
+  {
+    "trace_id": "trace11",
+    "task_id": "packet11",
+    "events": [
+      {
+        "event_id": "event1",
+        "task_id": "packet11",
+        "tick": 1,
+        "kind": "result",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": "stage1",
+        "artifact_id": "output1",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event2",
+        "task_id": "packet11",
+        "tick": 2,
+        "kind": "result",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": "stage2",
+        "artifact_id": "output2",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event3",
+        "task_id": "packet11",
+        "tick": 3,
+        "kind": "result",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": "stage3",
+        "artifact_id": "output3",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event4",
+        "task_id": "packet11",
+        "tick": 4,
+        "kind": "result",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": "stage4",
+        "artifact_id": "output4",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event5",
+        "task_id": "packet11",
+        "tick": 5,
+        "kind": "result",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": "stage5",
+        "artifact_id": "output5",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event6",
+        "task_id": "packet11",
+        "tick": 6,
+        "kind": "result",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": "stage6",
+        "artifact_id": "output6",
+        "wait_until": null,
+        "wake_condition": null
+      }
+    ]
+  },
+  {
+    "trace_id": "trace12",
+    "task_id": "packet12",
+    "events": [
+      {
+        "event_id": "event1",
+        "task_id": "packet12",
+        "tick": 1,
+        "kind": "result",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": "stage1",
+        "artifact_id": "output1",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event2",
+        "task_id": "packet12",
+        "tick": 2,
+        "kind": "result",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": "stage2",
+        "artifact_id": "output2",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event3",
+        "task_id": "packet12",
+        "tick": 3,
+        "kind": "result",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": "stage3",
+        "artifact_id": "output3",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event4",
+        "task_id": "packet12",
+        "tick": 4,
+        "kind": "result",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": "stage4",
+        "artifact_id": "output4",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event5",
+        "task_id": "packet12",
+        "tick": 5,
+        "kind": "result",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": "stage5",
+        "artifact_id": "output5",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event6",
+        "task_id": "packet12",
+        "tick": 6,
+        "kind": "result",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": "stage6",
+        "artifact_id": "output6",
+        "wait_until": null,
+        "wake_condition": null
+      }
+    ]
+  },
+  {
+    "trace_id": "trace13",
+    "task_id": "packet13",
+    "events": [
+      {
+        "event_id": "event1",
+        "task_id": "packet13",
+        "tick": 1,
+        "kind": "wait",
+        "role": "controller",
+        "text": "Wait for the external attachment service.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": 7,
+        "wake_condition": "Attachment service responds; otherwise expiry permits a new progress check."
+      },
+      {
+        "event_id": "event2",
+        "task_id": "packet13",
+        "tick": 2,
+        "kind": "message",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event3",
+        "task_id": "packet13",
+        "tick": 3,
+        "kind": "message",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event4",
+        "task_id": "packet13",
+        "tick": 4,
+        "kind": "message",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event5",
+        "task_id": "packet13",
+        "tick": 5,
+        "kind": "message",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event6",
+        "task_id": "packet13",
+        "tick": 6,
+        "kind": "message",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      }
+    ]
+  },
+  {
+    "trace_id": "trace14",
+    "task_id": "packet14",
+    "events": [
+      {
+        "event_id": "event1",
+        "task_id": "packet14",
+        "tick": 1,
+        "kind": "wait",
+        "role": "controller",
+        "text": "Wait for the external attachment service.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": 7,
+        "wake_condition": "Attachment service responds; otherwise expiry permits a new progress check."
+      },
+      {
+        "event_id": "event2",
+        "task_id": "packet14",
+        "tick": 2,
+        "kind": "message",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event3",
+        "task_id": "packet14",
+        "tick": 3,
+        "kind": "message",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event4",
+        "task_id": "packet14",
+        "tick": 4,
+        "kind": "message",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event5",
+        "task_id": "packet14",
+        "tick": 5,
+        "kind": "message",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event6",
+        "task_id": "packet14",
+        "tick": 6,
+        "kind": "message",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      }
+    ]
+  },
+  {
+    "trace_id": "trace15",
+    "task_id": "packet15",
+    "events": [
+      {
+        "event_id": "event1",
+        "task_id": "packet15",
+        "tick": 1,
+        "kind": "wait",
+        "role": "controller",
+        "text": "Wait for the external attachment service.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": 7,
+        "wake_condition": "Attachment service responds; otherwise expiry permits a new progress check."
+      },
+      {
+        "event_id": "event2",
+        "task_id": "packet15",
+        "tick": 2,
+        "kind": "message",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event3",
+        "task_id": "packet15",
+        "tick": 3,
+        "kind": "message",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event4",
+        "task_id": "packet15",
+        "tick": 4,
+        "kind": "message",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event5",
+        "task_id": "packet15",
+        "tick": 5,
+        "kind": "message",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event6",
+        "task_id": "packet15",
+        "tick": 6,
+        "kind": "message",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      }
+    ]
+  },
+  {
+    "trace_id": "trace16",
+    "task_id": "packet16",
+    "events": [
+      {
+        "event_id": "event1",
+        "task_id": "packet16",
+        "tick": 1,
+        "kind": "wait",
+        "role": "controller",
+        "text": "Wait for the external attachment service.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": 7,
+        "wake_condition": "Attachment service responds; otherwise expiry permits a new progress check."
+      },
+      {
+        "event_id": "event2",
+        "task_id": "packet16",
+        "tick": 2,
+        "kind": "message",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event3",
+        "task_id": "packet16",
+        "tick": 3,
+        "kind": "message",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event4",
+        "task_id": "packet16",
+        "tick": 4,
+        "kind": "message",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event5",
+        "task_id": "packet16",
+        "tick": 5,
+        "kind": "message",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event6",
+        "task_id": "packet16",
+        "tick": 6,
+        "kind": "message",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      }
+    ]
+  },
+  {
+    "trace_id": "trace17",
+    "task_id": "packet17",
+    "events": [
+      {
+        "event_id": "event1",
+        "task_id": "packet17",
+        "tick": 1,
+        "kind": "result",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": "stage1",
+        "artifact_id": "output1",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event2",
+        "task_id": "packet17",
+        "tick": 2,
+        "kind": "result",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": "stage2",
+        "artifact_id": "output2",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event3",
+        "task_id": "packet17",
+        "tick": 3,
+        "kind": "result",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": "stage3",
+        "artifact_id": "output3",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event4",
+        "task_id": "packet17",
+        "tick": 4,
+        "kind": "result",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": "stage4",
+        "artifact_id": "output4",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event5",
+        "task_id": "packet17",
+        "tick": 5,
+        "kind": "result",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": "stage5",
+        "artifact_id": "output5",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event6",
+        "task_id": "packet17",
+        "tick": 6,
+        "kind": "result",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": "stage6",
+        "artifact_id": "output6",
+        "wait_until": null,
+        "wake_condition": null
+      }
+    ]
+  },
+  {
+    "trace_id": "trace18",
+    "task_id": "packet18",
+    "events": [
+      {
+        "event_id": "event1",
+        "task_id": "packet18",
+        "tick": 1,
+        "kind": "result",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": "stage1",
+        "artifact_id": "output1",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event2",
+        "task_id": "packet18",
+        "tick": 2,
+        "kind": "result",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": "stage2",
+        "artifact_id": "output2",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event3",
+        "task_id": "packet18",
+        "tick": 3,
+        "kind": "result",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": "stage3",
+        "artifact_id": "output3",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event4",
+        "task_id": "packet18",
+        "tick": 4,
+        "kind": "result",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": "stage4",
+        "artifact_id": "output4",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event5",
+        "task_id": "packet18",
+        "tick": 5,
+        "kind": "result",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": "stage5",
+        "artifact_id": "output5",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event6",
+        "task_id": "packet18",
+        "tick": 6,
+        "kind": "result",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": "stage6",
+        "artifact_id": "output6",
+        "wait_until": null,
+        "wake_condition": null
+      }
+    ]
+  },
+  {
+    "trace_id": "trace19",
+    "task_id": "packet19",
+    "events": [
+      {
+        "event_id": "event1",
+        "task_id": "packet19",
+        "tick": 1,
+        "kind": "result",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": "stage1",
+        "artifact_id": "output1",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event2",
+        "task_id": "packet19",
+        "tick": 2,
+        "kind": "result",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": "stage2",
+        "artifact_id": "output2",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event3",
+        "task_id": "packet19",
+        "tick": 3,
+        "kind": "result",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": "stage3",
+        "artifact_id": "output3",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event4",
+        "task_id": "packet19",
+        "tick": 4,
+        "kind": "result",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": "stage4",
+        "artifact_id": "output4",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event5",
+        "task_id": "packet19",
+        "tick": 5,
+        "kind": "result",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": "stage5",
+        "artifact_id": "output5",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event6",
+        "task_id": "packet19",
+        "tick": 6,
+        "kind": "result",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": "stage6",
+        "artifact_id": "output6",
+        "wait_until": null,
+        "wake_condition": null
+      }
+    ]
+  },
+  {
+    "trace_id": "trace20",
+    "task_id": "packet20",
+    "events": [
+      {
+        "event_id": "event1",
+        "task_id": "packet20",
+        "tick": 1,
+        "kind": "result",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": "stage1",
+        "artifact_id": "output1",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event2",
+        "task_id": "packet20",
+        "tick": 2,
+        "kind": "result",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": "stage2",
+        "artifact_id": "output2",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event3",
+        "task_id": "packet20",
+        "tick": 3,
+        "kind": "result",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": "stage3",
+        "artifact_id": "output3",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event4",
+        "task_id": "packet20",
+        "tick": 4,
+        "kind": "result",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": "stage4",
+        "artifact_id": "output4",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event5",
+        "task_id": "packet20",
+        "tick": 5,
+        "kind": "result",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": "stage5",
+        "artifact_id": "output5",
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event6",
+        "task_id": "packet20",
+        "tick": 6,
+        "kind": "result",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": "stage6",
+        "artifact_id": "output6",
+        "wait_until": null,
+        "wake_condition": null
+      }
+    ]
+  },
+  {
+    "trace_id": "trace21",
+    "task_id": "packet21",
+    "events": [
+      {
+        "event_id": "event1",
+        "task_id": "packet21",
+        "tick": 1,
+        "kind": "wait",
+        "role": "controller",
+        "text": "Wait for the external attachment service.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": 4,
+        "wake_condition": "Attachment service responds; otherwise expiry permits a new progress check."
+      },
+      {
+        "event_id": "event2",
+        "task_id": "packet21",
+        "tick": 2,
+        "kind": "message",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event3",
+        "task_id": "packet21",
+        "tick": 3,
+        "kind": "message",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event4",
+        "task_id": "packet21",
+        "tick": 4,
+        "kind": "message",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event5",
+        "task_id": "packet21",
+        "tick": 5,
+        "kind": "message",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event6",
+        "task_id": "packet21",
+        "tick": 6,
+        "kind": "message",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event7",
+        "task_id": "packet21",
+        "tick": 7,
+        "kind": "message",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event8",
+        "task_id": "packet21",
+        "tick": 8,
+        "kind": "message",
+        "role": "agent",
+        "text": "I am checking the packet.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      }
+    ]
+  },
+  {
+    "trace_id": "trace22",
+    "task_id": "packet22",
+    "events": [
+      {
+        "event_id": "event1",
+        "task_id": "packet22",
+        "tick": 1,
+        "kind": "wait",
+        "role": "controller",
+        "text": "Wait for the external attachment service.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": 4,
+        "wake_condition": "Attachment service responds; otherwise expiry permits a new progress check."
+      },
+      {
+        "event_id": "event2",
+        "task_id": "packet22",
+        "tick": 2,
+        "kind": "message",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event3",
+        "task_id": "packet22",
+        "tick": 3,
+        "kind": "message",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event4",
+        "task_id": "packet22",
+        "tick": 4,
+        "kind": "message",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event5",
+        "task_id": "packet22",
+        "tick": 5,
+        "kind": "message",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event6",
+        "task_id": "packet22",
+        "tick": 6,
+        "kind": "message",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event7",
+        "task_id": "packet22",
+        "tick": 7,
+        "kind": "message",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event8",
+        "task_id": "packet22",
+        "tick": 8,
+        "kind": "message",
+        "role": "agent",
+        "text": "Reviewing the attachment inventory.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      }
+    ]
+  },
+  {
+    "trace_id": "trace23",
+    "task_id": "packet23",
+    "events": [
+      {
+        "event_id": "event1",
+        "task_id": "packet23",
+        "tick": 1,
+        "kind": "wait",
+        "role": "controller",
+        "text": "Wait for the external attachment service.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": 4,
+        "wake_condition": "Attachment service responds; otherwise expiry permits a new progress check."
+      },
+      {
+        "event_id": "event2",
+        "task_id": "packet23",
+        "tick": 2,
+        "kind": "message",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event3",
+        "task_id": "packet23",
+        "tick": 3,
+        "kind": "message",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event4",
+        "task_id": "packet23",
+        "tick": 4,
+        "kind": "message",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event5",
+        "task_id": "packet23",
+        "tick": 5,
+        "kind": "message",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event6",
+        "task_id": "packet23",
+        "tick": 6,
+        "kind": "message",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event7",
+        "task_id": "packet23",
+        "tick": 7,
+        "kind": "message",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event8",
+        "task_id": "packet23",
+        "tick": 8,
+        "kind": "message",
+        "role": "agent",
+        "text": "The packet is under review.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      }
+    ]
+  },
+  {
+    "trace_id": "trace24",
+    "task_id": "packet24",
+    "events": [
+      {
+        "event_id": "event1",
+        "task_id": "packet24",
+        "tick": 1,
+        "kind": "wait",
+        "role": "controller",
+        "text": "Wait for the external attachment service.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": 4,
+        "wake_condition": "Attachment service responds; otherwise expiry permits a new progress check."
+      },
+      {
+        "event_id": "event2",
+        "task_id": "packet24",
+        "tick": 2,
+        "kind": "message",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event3",
+        "task_id": "packet24",
+        "tick": 3,
+        "kind": "message",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event4",
+        "task_id": "packet24",
+        "tick": 4,
+        "kind": "message",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event5",
+        "task_id": "packet24",
+        "tick": 5,
+        "kind": "message",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event6",
+        "task_id": "packet24",
+        "tick": 6,
+        "kind": "message",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event7",
+        "task_id": "packet24",
+        "tick": 7,
+        "kind": "message",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      },
+      {
+        "event_id": "event8",
+        "task_id": "packet24",
+        "tick": 8,
+        "kind": "message",
+        "role": "agent",
+        "text": "Working on the document bundle.",
+        "criterion_id": null,
+        "artifact_id": null,
+        "wait_until": null,
+        "wake_condition": null
+      }
+    ]
+  }
+]

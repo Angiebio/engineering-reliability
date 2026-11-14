@@ -1,0 +1,10 @@
+{
+  "policy_fixture_source_unchanged": {
+    "continuity/core.py": true,
+    "continuity/storage.py": true,
+    "continuity/worker.py": true,
+    "continuity/fixtures.py": true,
+    "continuity/__main__.py": true
+  },
+  "observed_outcomes_unchanged": true
+}

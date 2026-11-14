@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 440" role="img" aria-labelledby="title desc">
+<title id="title">Can more memory make a restart worse?</title>
+<desc id="desc">Raw-tail resumptions fall from 12 at 541 bytes to nine at 542, while the timeline remains at 12. More retained bytes need not preserve the evidence the reader needs. Authored histories and a deterministic reader. This measures these retention policies on these fixtures, not memory performance of a live model.</desc>
+<rect width="680" height="440" fill="#f7f6f3"/>
+<g font-family="system-ui, sans-serif">
+<text x="28" y="37" fill="#14284b" font-size="25" font-weight="650">Eligible tasks resumed</text>
+<text x="28" y="70" fill="#526477" font-size="21">541 bytes: 12 / 12 → 542 bytes: 9 / 12</text>
+<line x1="70" y1="337.000" x2="624" y2="337.000" stroke="#cbd2dc"/>
+<text x="58" y="344" fill="#526477" font-size="20" text-anchor="end">0</text>
+<line x1="70" y1="230.000" x2="624" y2="230.000" stroke="#cbd2dc"/>
+<text x="58" y="237" fill="#526477" font-size="20" text-anchor="end">6</text>
+<line x1="70" y1="123.000" x2="624" y2="123.000" stroke="#cbd2dc"/>
+<text x="58" y="130" fill="#526477" font-size="20" text-anchor="end">12</text>
+<text x="70" y="368" fill="#526477" font-size="21" text-anchor="middle">200</text>
+<text x="347" y="368" fill="#526477" font-size="21" text-anchor="middle">600</text>
+<text x="624" y="368" fill="#526477" font-size="21" text-anchor="middle">1000</text>
+<text x="347" y="409" fill="#14284b" font-size="23" text-anchor="middle">Memory budget (bytes)</text>
+<circle data-series="raw_tail" data-x="200" data-value="0" cx="70.000" cy="337.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="220" data-value="0" cx="83.850" cy="337.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="240" data-value="8" cx="97.700" cy="194.333" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="243" data-value="8" cx="99.778" cy="194.333" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="244" data-value="9" cx="100.470" cy="176.500" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="260" data-value="9" cx="111.550" cy="176.500" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="280" data-value="9" cx="125.400" cy="176.500" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="284" data-value="9" cx="128.170" cy="176.500" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="285" data-value="6" cx="128.863" cy="230.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="286" data-value="6" cx="129.555" cy="230.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="287" data-value="6" cx="130.248" cy="230.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="288" data-value="3" cx="130.940" cy="283.500" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="300" data-value="3" cx="139.250" cy="283.500" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="320" data-value="3" cx="153.100" cy="283.500" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="340" data-value="3" cx="166.950" cy="283.500" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="360" data-value="3" cx="180.800" cy="283.500" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="380" data-value="3" cx="194.650" cy="283.500" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="400" data-value="4" cx="208.500" cy="265.667" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="420" data-value="6" cx="222.350" cy="230.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="440" data-value="6" cx="236.200" cy="230.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="460" data-value="6" cx="250.050" cy="230.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="480" data-value="7" cx="263.900" cy="212.167" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="488" data-value="11" cx="269.440" cy="140.833" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="489" data-value="12" cx="270.133" cy="123.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="500" data-value="12" cx="277.750" cy="123.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="520" data-value="12" cx="291.600" cy="123.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="540" data-value="12" cx="305.450" cy="123.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="541" data-value="12" cx="306.143" cy="123.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="542" data-value="9" cx="306.835" cy="176.500" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="560" data-value="9" cx="319.300" cy="176.500" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="580" data-value="9" cx="333.150" cy="176.500" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="600" data-value="9" cx="347.000" cy="176.500" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="620" data-value="9" cx="360.850" cy="176.500" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="640" data-value="9" cx="374.700" cy="176.500" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="660" data-value="9" cx="388.550" cy="176.500" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="680" data-value="9" cx="402.400" cy="176.500" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="700" data-value="9" cx="416.250" cy="176.500" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="720" data-value="9" cx="430.100" cy="176.500" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="734" data-value="9" cx="439.795" cy="176.500" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="735" data-value="10" cx="440.487" cy="158.667" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="740" data-value="10" cx="443.950" cy="158.667" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="741" data-value="11" cx="444.642" cy="140.833" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="745" data-value="11" cx="447.413" cy="140.833" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="746" data-value="12" cx="448.105" cy="123.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="760" data-value="12" cx="457.800" cy="123.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="780" data-value="12" cx="471.650" cy="123.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="800" data-value="12" cx="485.500" cy="123.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="820" data-value="12" cx="499.350" cy="123.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="840" data-value="12" cx="513.200" cy="123.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="860" data-value="12" cx="527.050" cy="123.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="880" data-value="12" cx="540.900" cy="123.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="900" data-value="12" cx="554.750" cy="123.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="920" data-value="12" cx="568.600" cy="123.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="940" data-value="12" cx="582.450" cy="123.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="960" data-value="12" cx="596.300" cy="123.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="980" data-value="12" cx="610.150" cy="123.000" r="5.5" fill="#9b4e25"/>
+<circle data-series="raw_tail" data-x="1000" data-value="12" cx="624.000" cy="123.000" r="5.5" fill="#9b4e25"/>
+<circle cx="85" cy="95" r="5.5" fill="#9b4e25"/>
+<text x="112" y="102" fill="#9b4e25" font-size="21">Raw tail</text>
+<circle data-series="timeline" data-x="200" data-value="0" cx="70.000" cy="337.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="220" data-value="0" cx="83.850" cy="337.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="240" data-value="11" cx="97.700" cy="140.833" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="243" data-value="11" cx="99.778" cy="140.833" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="244" data-value="12" cx="100.470" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="260" data-value="12" cx="111.550" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="280" data-value="12" cx="125.400" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="284" data-value="12" cx="128.170" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="285" data-value="12" cx="128.863" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="286" data-value="12" cx="129.555" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="287" data-value="12" cx="130.248" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="288" data-value="12" cx="130.940" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="300" data-value="12" cx="139.250" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="320" data-value="12" cx="153.100" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="340" data-value="12" cx="166.950" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="360" data-value="12" cx="180.800" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="380" data-value="12" cx="194.650" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="400" data-value="12" cx="208.500" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="420" data-value="12" cx="222.350" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="440" data-value="12" cx="236.200" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="460" data-value="12" cx="250.050" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="480" data-value="12" cx="263.900" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="488" data-value="12" cx="269.440" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="489" data-value="12" cx="270.133" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="500" data-value="12" cx="277.750" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="520" data-value="12" cx="291.600" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="540" data-value="12" cx="305.450" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="541" data-value="12" cx="306.143" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="542" data-value="12" cx="306.835" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="560" data-value="12" cx="319.300" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="580" data-value="12" cx="333.150" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="600" data-value="12" cx="347.000" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="620" data-value="12" cx="360.850" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="640" data-value="12" cx="374.700" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="660" data-value="12" cx="388.550" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="680" data-value="12" cx="402.400" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="700" data-value="12" cx="416.250" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="720" data-value="12" cx="430.100" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="734" data-value="12" cx="439.795" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="735" data-value="12" cx="440.487" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="740" data-value="12" cx="443.950" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="741" data-value="12" cx="444.642" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="745" data-value="12" cx="447.413" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="746" data-value="12" cx="448.105" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="760" data-value="12" cx="457.800" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="780" data-value="12" cx="471.650" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="800" data-value="12" cx="485.500" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="820" data-value="12" cx="499.350" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="840" data-value="12" cx="513.200" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="860" data-value="12" cx="527.050" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="880" data-value="12" cx="540.900" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="900" data-value="12" cx="554.750" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="920" data-value="12" cx="568.600" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="940" data-value="12" cx="582.450" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="960" data-value="12" cx="596.300" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="980" data-value="12" cx="610.150" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle data-series="timeline" data-x="1000" data-value="12" cx="624.000" cy="123.000" r="3.5" fill="#3f6798"/>
+<circle cx="375" cy="95" r="5.5" fill="#3f6798"/>
+<text x="402" y="102" fill="#3f6798" font-size="21">Timeline</text>
+</g>
+</svg>

@@ -1,0 +1,83 @@
+# Engineering Reliability · CI
+#
+# Two jobs, one question each.
+#   demos: does every demo pass its tests and rebuild its report on Linux and Windows,
+#          on the oldest and newest Python we promise (3.11 and 3.13)?
+#   comment-contracts: does each of the 32 comment claims still name a test that fails
+#          when the guard it describes is broken?
+#
+# Where a demo ships an artifact verifier, it runs twice: once on the checked-in report,
+# so a source edit without a rebuilt report fails here, and once on the rebuilt report.
+# A rebuilt report is not compared byte for byte with the checked-in one, because the
+# reports record the Python version and Continuity records worker process IDs.
+name: checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  demos:
+    name: demos (${{ matrix.os }}, Python ${{ matrix.python }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.11', '3.13']
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Registry Metric Lab
+        working-directory: demos/registry-metric-lab
+        run: |
+          python -B tests/verify_artifacts.py
+          python -B -m unittest discover -s tests
+          python -B -m registry_metrics --out artifacts
+          python -B tests/verify_artifacts.py
+
+      - name: Continuity Ledger
+        working-directory: demos/continuity-ledger
+        run: |
+          python -B -m unittest discover -s tests
+          python -B -m continuity --out artifacts
+
+      - name: Adapter Promotion Gate
+        working-directory: demos/adapter-promotion-gate
+        run: |
+          python -B tests/verify_artifacts.py
+          python -B -m unittest discover -s tests
+          python -B -m promotion_gate.demo --output artifacts
+          python -B tests/verify_artifacts.py
+
+      - name: Stagnation Observatory
+        working-directory: demos/stagnation-observatory
+        run: |
+          python -B -m unittest discover -s tests
+          python -B -m observatory --out artifacts
+
+  comment-contracts:
+    name: comment contracts (32 mutations)
+    runs-on: ubuntu-latest
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: The verifier's own self-tests
+        run: python -B -m unittest discover -s tools -p test_comment_mutation_runner.py
+      - name: Break each guard and require its cited test to fail
+        run: python -B tools/verify_comment_mutations.py

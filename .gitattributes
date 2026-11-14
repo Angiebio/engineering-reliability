@@ -1,0 +1,4 @@
+# engineering-reliability · .gitattributes
+# Store every file byte for byte. Each demo records SHA-256 hashes of its own source,
+# and a checkout that rewrote line endings would make those records disagree with the code.
+* -text

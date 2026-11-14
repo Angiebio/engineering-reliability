@@ -1,0 +1,9 @@
+{
+  "seed": 73129,
+  "independent_arithmetic_and_geography_checks": 270,
+  "accepted_large_total": 2000000000,
+  "large_total_render_outcome": "rendered",
+  "equal_rate_trial_count": 30,
+  "plotted_rate_circles": 31,
+  "circles_outside_viewbox": 0
+}

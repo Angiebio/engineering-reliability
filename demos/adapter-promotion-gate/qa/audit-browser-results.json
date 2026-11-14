@@ -1,0 +1,28 @@
+[
+  {
+    "width": 1440,
+    "recorded_frames_checked": 55,
+    "keyboard_step_change": true,
+    "rollback_replay": true,
+    "final_scenario_outcome_labels_explicit": true,
+    "boundary_button_focus_retained": true,
+    "starts_at_initial_frame": true,
+    "recorded_denial_checks": true,
+    "page_errors": [],
+    "external_requests": [],
+    "page_overflow": false
+  },
+  {
+    "width": 390,
+    "recorded_frames_checked": 55,
+    "keyboard_step_change": true,
+    "rollback_replay": true,
+    "final_scenario_outcome_labels_explicit": true,
+    "boundary_button_focus_retained": true,
+    "starts_at_initial_frame": true,
+    "recorded_denial_checks": true,
+    "page_errors": [],
+    "external_requests": [],
+    "page_overflow": false
+  }
+]

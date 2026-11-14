@@ -1,0 +1,74 @@
+[
+  {
+    "id": "CL-GATE-WIRING",
+    "source": "continuity/__main__.py",
+    "old": "gated = check_proposal(authoritative, history['task_id'], proposal)",
+    "new": "gated = {'action': proposal['action'], 'reason': 'bypassed', 'state': expected, 'current_evidence_id': 'disconnected'}",
+    "tests": ["test_review_regressions.ReviewRegressions.test_natural_control_traverses_run_and_real_ablation"],
+    "claim": "The shared replay runner applies the gate to a naturally stale reader proposal.",
+    "finding": "CL-01/CL-03"
+  },
+  {
+    "id": "CL-EXACT-BINDING",
+    "source": "continuity/core.py",
+    "old": "if source is None or source != evidence or source.task_id != task_id:",
+    "new": "if source is None or source.task_id != task_id:",
+    "tests": ["test_review_regressions.ReviewRegressions.test_current_head_forgery_is_unbound"],
+    "claim": "Edited current-head text cannot pass with a genuine event identity.",
+    "finding": "CL-02"
+  },
+  {
+    "id": "CL-UTF8-PACK",
+    "source": "continuity/core.py",
+    "old": "len(canonical({\"task_id\": task_id, \"events\": trial})) <= budget",
+    "new": "len(canonical({\"task_id\": task_id, \"events\": trial}).decode('utf-8')) <= budget",
+    "tests": ["test_review_regressions.ReviewRegressions.test_unicode_changes_record_selection"],
+    "claim": "Selection obeys the UTF-8 byte budget even when characters and bytes differ.",
+    "finding": "CL-07"
+  },
+  {
+    "id": "CL-WORKER-SCHEMA",
+    "source": "continuity/__main__.py",
+    "old": "if set(request) != expected:",
+    "new": "if False:",
+    "tests": ["test_review_regressions.ReviewRegressions.test_worker_rejects_label_fields"],
+    "claim": "The parent rejects undeclared evaluator fields before transport.",
+    "finding": "CL-06"
+  },
+  {
+    "id": "CL-PID-BOUNDARY",
+    "source": "continuity/__main__.py",
+    "old": "if response[\"pid\"] == os.getpid():",
+    "new": "if False:",
+    "tests": ["test_review_regressions.ReviewRegressions.test_same_process_reply_is_rejected"],
+    "claim": "Same-process replies cannot be reported as fresh-process evidence.",
+    "finding": "CL-15"
+  },
+  {
+    "id": "CL-RESTORE-INPUT",
+    "source": "continuity/__main__.py",
+    "old": "'manifest': manifest, 'task_id': history['task_id'], 'strategy': strategy, 'budget': BUDGET})",
+    "new": "'manifest': manifest, 'task_id': history['task_id'], 'strategy': strategy, 'budget': BUDGET, 'expected': expected})",
+    "tests": ["test_review_regressions.ReviewRegressions.test_run_worker_input_contract_and_label_timing"],
+    "claim": "Actual restore requests exclude evaluation labels.",
+    "finding": "CL-06"
+  },
+  {
+    "id": "CL-PROPOSE-INPUT",
+    "source": "continuity/__main__.py",
+    "old": "proposed = worker({'operation': 'propose', 'context': memory['context']})",
+    "new": "proposed = worker({'operation': 'propose', 'context': memory['context'], 'expected': expected})",
+    "tests": ["test_review_regressions.ReviewRegressions.test_run_worker_input_contract_and_label_timing"],
+    "claim": "Actual propose requests contain only the operation and selected context.",
+    "finding": "CL-06"
+  },
+  {
+    "id": "CL-STALE-HEAD",
+    "source": "continuity/core.py",
+    "old": "elif evidence.event_id != state.evidence_id:",
+    "new": "elif False:",
+    "tests": ["test_core.LedgerTests.test_revocation_overrides_previous_approval", "test_recheck_properties.RecheckProperties.test_active_task_still_requires_latest_authority"],
+    "claim": "An exact older source is reported as stale, including when a later approval leaves the task active.",
+    "finding": "CL-01"
+  }
+]

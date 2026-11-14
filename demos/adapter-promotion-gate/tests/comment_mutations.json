@@ -1,0 +1,101 @@
+[
+  {
+    "id": "PG-SERVE-FRESHNESS",
+    "source": "promotion_gate/core.py",
+    "old": "fresh(candidate['evaluated_at'], self.clock())",
+    "new": "fresh(candidate['evaluated_at'], self.clock()) if action == 'approve' else None",
+    "tests": [
+      "test_review.ReviewTests.test_evidence_expires_after_approval"
+    ],
+    "claim": "Serving independently rechecks evidence age",
+    "finding": "PG-04"
+  },
+  {
+    "id": "PG-CANARY-ID",
+    "source": "promotion_gate/core.py",
+    "old": "require(type(key) is str and key in MANDATORY_CANARIES, \"canary_schema\", \"Unknown canary\")",
+    "new": "require(type(key) is str, \"canary_schema\", \"Unknown canary\")",
+    "tests": [
+      "test_review.ReviewTests.test_unknown_canary_rejected_on_admit"
+    ],
+    "claim": "Unknown canary identifiers stop at closed-suite validation",
+    "finding": "PG-11"
+  },
+  {
+    "id": "PG-UNCHANGED",
+    "source": "promotion_gate/core.py",
+    "old": "require(payloads[\"candidate\"] != payloads[\"baseline\"], \"unchanged_candidate\", \"No change to evaluate\")",
+    "new": "require(True, \"unchanged_candidate\", \"No change to evaluate\")",
+    "tests": [
+      "test_review.ReviewTests.test_unchanged_candidate_rejected"
+    ],
+    "claim": "Byte-identical candidate is not admitted",
+    "finding": "PG-11"
+  },
+  {
+    "id": "PG-WRITE-VALIDATION",
+    "source": "promotion_gate/core.py",
+    "old": "self.validate_state(parse_json(payload))",
+    "new": "pass  # deliberately disconnected write validation",
+    "tests": [
+      "test_review.ReviewTests.test_invalid_private_state_never_replaces_registry"
+    ],
+    "claim": "Private next state is validated before any temporary-file write",
+    "finding": "PG-02"
+  },
+  {
+    "id": "PG-AUDIT-BINDING",
+    "source": "promotion_gate/core.py",
+    "old": "require(state_snapshot(state) == {'record_states': reconstructed, 'serving': pointer,\n                'serving_sha256': state['records'][pointer]['sha256']}, 'registry_schema', 'Audit differs from stored lifecycle')",
+    "new": "require(True, 'registry_schema', 'Audit differs from stored lifecycle')",
+    "tests": [
+      "test_review.ReviewTests.test_audit_must_bind_lifecycle_state"
+    ],
+    "claim": "Stored lifecycle must match the recorded audit",
+    "finding": "PG-12"
+  },
+  {
+    "id": "PG-ROLLBACK-REVOCATION",
+    "source": "promotion_gate/core.py",
+    "old": "current['state'] = 'rolled_back'",
+    "new": "current['state'] = 'approved'",
+    "tests": [
+      "test_review.ReviewTests.test_rollback_revokes_approval"
+    ],
+    "claim": "Rollback revokes prior approval",
+    "finding": "PG-01"
+  },
+  {
+    "id": "PG-METRIC-WIRING",
+    "source": "promotion_gate/core.py",
+    "old": "gain = number(report[\"gain\"], \"gain\", -1, 1)\n        regression = number(report[\"regression\"], \"regression\", 0, 1)",
+    "new": "gain = float(report[\"gain\"])\n        regression = float(report[\"regression\"])",
+    "tests": [
+      "test_review.ReviewTests.test_invalid_metrics_rejected_on_admit_path"
+    ],
+    "claim": "Actual admission calls strict numeric validation before thresholds",
+    "finding": "PG-10"
+  },
+  {
+    "id": "PG-GALLERY-OBSERVATION",
+    "source": "promotion_gate/demo.py",
+    "old": "return 'unexpected_persistent_state'",
+    "new": "return 'rollback_restored'",
+    "tests": [
+      "test_review.ReviewTests.test_gallery_detects_disconnected_rollback"
+    ],
+    "claim": "Gallery success is derived from actual persisted rollback state",
+    "finding": "PG-06"
+  },
+  {
+    "id": "PG-HEADROOM",
+    "source": "promotion_gate/core.py",
+    "old": "reserve = len(state['records']) * LIFECYCLE_RESERVE_PER_RECORD",
+    "new": "reserve = 0",
+    "tests": [
+      "test_review.ReviewTests.test_near_full_registry_reserves_complete_lifecycle"
+    ],
+    "claim": "Admission reserves remaining lifecycle storage before accepting a near-full registry",
+    "finding": "PG-03"
+  }
+]

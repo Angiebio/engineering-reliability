@@ -1,0 +1,28 @@
+test_all_missing_is_not_zero (test_metrics.AggregationTests.test_all_missing_is_not_zero) ... ok
+test_all_scenarios_match_independent_oracle (test_metrics.AggregationTests.test_all_scenarios_match_independent_oracle) ... ok
+test_country_filter (test_metrics.AggregationTests.test_country_filter) ... ok
+test_duplicate_intervention_invariance (test_metrics.AggregationTests.test_duplicate_intervention_invariance) ... ok
+test_duplicate_site_invariance (test_metrics.AggregationTests.test_duplicate_site_invariance) ... ok
+test_empty_cohort (test_metrics.AggregationTests.test_empty_cohort) ... ok
+test_empty_dataset (test_metrics.AggregationTests.test_empty_dataset) ... ok
+test_equal_values_are_independent (test_metrics.AggregationTests.test_equal_values_are_independent) ... ok
+test_invalid_filters (test_metrics.AggregationTests.test_invalid_filters) ... ok
+test_invalid_identity_and_reference (test_metrics.AggregationTests.test_invalid_identity_and_reference) ... ok
+test_invalid_numeric_values (test_metrics.AggregationTests.test_invalid_numeric_values) ... ok
+test_missing_values_reported (test_metrics.AggregationTests.test_missing_values_reported) ... ok
+test_multinational_groups_nonadditive (test_metrics.AggregationTests.test_multinational_groups_nonadditive) ... ok
+test_original_failure (test_metrics.AggregationTests.test_original_failure) ... ok
+test_repeat_analysis_does_not_mutate_fixture (test_metrics.AggregationTests.test_repeat_analysis_does_not_mutate_fixture) ... ok
+test_unknown_geography_keeps_overall_membership (test_metrics.AggregationTests.test_unknown_geography_keeps_overall_membership) ... ok
+test_zero_values_are_known (test_metrics.AggregationTests.test_zero_values_are_known) ... ok
+test_aggregate_geometry_exceeds_single_record_cap (test_metrics.PresentationTests.test_aggregate_geometry_exceeds_single_record_cap) ... ok
+test_bad_geometry_rejected (test_metrics.PresentationTests.test_bad_geometry_rejected) ... ok
+test_cli_reproduces (test_metrics.PresentationTests.test_cli_reproduces) ... ok
+test_dense_equal_rates_stay_inside_svg (test_metrics.PresentationTests.test_dense_equal_rates_stay_inside_svg) ... ok
+test_graph_counts (test_metrics.PresentationTests.test_graph_counts) ... ok
+test_render_escapes_text (test_metrics.PresentationTests.test_render_escapes_text) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.153s
+
+OK

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 440" role="img" aria-labelledby="title desc">
+<title id="title">What keeps a failed candidate out of service?</title>
+<desc id="desc">The failed privacy-canary admission passes nine checks, stops at canaries, and never evaluates thresholds or the write. The unchanged registry continues serving the baseline. Canary outcomes are authored fields in a synthetic report; no adapter was trained or tested. The release-manager label is not implemented authentication.</desc>
+<rect width="680" height="440" fill="#f7f6f3"/>
+<g font-family="system-ui, sans-serif">
+<text x="28" y="40" fill="#14284b" font-size="26" font-weight="650">A failed canary stops admission</text>
+<text x="28" y="70" fill="#526477" font-size="20">Recorded path · synthetic report</text>
+<g data-status="passed" data-count="9">
+<line x1="28" y1="167" x2="650" y2="167" stroke="#cbd2dc"/>
+<text x="28" y="139" fill="#3f6798" font-size="38" font-weight="750">9</text>
+<text x="91" y="135" fill="#3f6798" font-size="24" font-weight="650">Checks passed</text>
+<circle cx="383" cy="127" r="9" fill="#3f6798" stroke="#3f6798" stroke-width="2"/>
+<circle cx="412" cy="127" r="9" fill="#3f6798" stroke="#3f6798" stroke-width="2"/>
+<circle cx="441" cy="127" r="9" fill="#3f6798" stroke="#3f6798" stroke-width="2"/>
+<circle cx="470" cy="127" r="9" fill="#3f6798" stroke="#3f6798" stroke-width="2"/>
+<circle cx="499" cy="127" r="9" fill="#3f6798" stroke="#3f6798" stroke-width="2"/>
+<circle cx="528" cy="127" r="9" fill="#3f6798" stroke="#3f6798" stroke-width="2"/>
+<circle cx="557" cy="127" r="9" fill="#3f6798" stroke="#3f6798" stroke-width="2"/>
+<circle cx="586" cy="127" r="9" fill="#3f6798" stroke="#3f6798" stroke-width="2"/>
+<circle cx="615" cy="127" r="9" fill="#3f6798" stroke="#3f6798" stroke-width="2"/>
+</g>
+<g data-status="stopped" data-count="1">
+<line x1="28" y1="249" x2="650" y2="249" stroke="#cbd2dc"/>
+<text x="28" y="221" fill="#9b4e25" font-size="38" font-weight="750">1</text>
+<text x="91" y="217" fill="#9b4e25" font-size="24" font-weight="650">Canary stopped</text>
+<circle cx="383" cy="209" r="9" fill="#9b4e25" stroke="#9b4e25" stroke-width="2"/>
+</g>
+<g data-status="not_evaluated" data-count="2">
+<line x1="28" y1="331" x2="650" y2="331" stroke="#cbd2dc"/>
+<text x="28" y="303" fill="#526477" font-size="38" font-weight="750">2</text>
+<text x="91" y="299" fill="#526477" font-size="24" font-weight="650">Not evaluated</text>
+<circle cx="383" cy="291" r="9" fill="#f7f6f3" stroke="#526477" stroke-width="2"/>
+<circle cx="412" cy="291" r="9" fill="#f7f6f3" stroke="#526477" stroke-width="2"/>
+</g>
+<text x="28" y="385" fill="#14284b" font-size="28" font-weight="700">Baseline keeps serving</text>
+<text x="28" y="417" fill="#526477" font-size="20">Registry bytes unchanged</text>
+</g>
+</svg>

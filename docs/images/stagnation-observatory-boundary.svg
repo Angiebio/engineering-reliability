@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 440" role="img" aria-labelledby="title desc">
+<title id="title">When does healthy work look stalled?</title>
+<desc id="desc">Healthy-work alerts stay at zero for gaps of zero, one and two status messages, then rise to five, ten, fifteen and twenty for gaps of three through six. The alert window is an authored policy. Slow useful work can trigger it before a verifiable result arrives; this is not measured live-agent accuracy.</desc>
+<rect width="680" height="440" fill="#f7f6f3"/>
+<g font-family="system-ui, sans-serif">
+<text x="28" y="37" fill="#14284b" font-size="25" font-weight="650">Alerts on healthy work</text>
+<rect x="347.000" y="123" width="277.000" height="214" fill="#f0e2d7"/>
+<text x="28" y="70" fill="#526477" font-size="21">Six milestones. Five gaps. Real false alerts.</text>
+<line x1="70" y1="337.000" x2="624" y2="337.000" stroke="#cbd2dc"/>
+<text x="58" y="344" fill="#526477" font-size="20" text-anchor="end">0</text>
+<line x1="70" y1="230.000" x2="624" y2="230.000" stroke="#cbd2dc"/>
+<text x="58" y="237" fill="#526477" font-size="20" text-anchor="end">10</text>
+<line x1="70" y1="123.000" x2="624" y2="123.000" stroke="#cbd2dc"/>
+<text x="58" y="130" fill="#526477" font-size="20" text-anchor="end">20</text>
+<text x="70" y="368" fill="#526477" font-size="21" text-anchor="middle">0</text>
+<text x="347" y="368" fill="#526477" font-size="21" text-anchor="middle">3</text>
+<text x="624" y="368" fill="#526477" font-size="21" text-anchor="middle">6</text>
+<text x="347" y="409" fill="#14284b" font-size="23" text-anchor="middle">Status messages between milestones</text>
+<polyline data-series="healthy" fill="none" stroke="#9b4e25" stroke-width="4" points="70.000,337.000 162.333,337.000 254.667,337.000 347.000,283.500 439.333,230.000 531.667,176.500 624.000,123.000"/>
+<circle data-series="healthy" data-x="0" data-value="0" cx="70.000" cy="337.000" r="3.5" fill="#9b4e25"/>
+<circle data-series="healthy" data-x="1" data-value="0" cx="162.333" cy="337.000" r="3.5" fill="#9b4e25"/>
+<circle data-series="healthy" data-x="2" data-value="0" cx="254.667" cy="337.000" r="3.5" fill="#9b4e25"/>
+<circle data-series="healthy" data-x="3" data-value="5" cx="347.000" cy="283.500" r="3.5" fill="#9b4e25"/>
+<circle data-series="healthy" data-x="4" data-value="10" cx="439.333" cy="230.000" r="3.5" fill="#9b4e25"/>
+<circle data-series="healthy" data-x="5" data-value="15" cx="531.667" cy="176.500" r="3.5" fill="#9b4e25"/>
+<circle data-series="healthy" data-x="6" data-value="20" cx="624.000" cy="123.000" r="3.5" fill="#9b4e25"/>
+<line x1="70" y1="95" x2="101" y2="95" stroke="#9b4e25" stroke-width="4"/>
+<text x="112" y="102" fill="#9b4e25" font-size="21">Healthy work</text>
+</g>
+</svg>

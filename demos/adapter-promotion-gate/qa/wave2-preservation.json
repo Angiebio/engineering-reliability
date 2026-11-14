@@ -1,0 +1,7 @@
+{
+  "policy_fixture_source_unchanged": {
+    "promotion_gate/core.py": true
+  },
+  "observed_outcomes_unchanged": true,
+  "source_hashes_match_regenerated_artifacts": true
+}

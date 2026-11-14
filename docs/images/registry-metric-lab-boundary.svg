@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 440" role="img" aria-labelledby="title desc">
+<title id="title">Can one extra site create extra patients?</title>
+<desc id="desc">Joined-row enrollment rises from 600 to 1,600 as extra US sites increase from zero to ten; trial-identity enrollment stays at 500. Synthetic trial data. Summed trial enrollment is not a count of patients recruited in a country; multinational groups can overlap.</desc>
+<rect width="680" height="440" fill="#f7f6f3"/>
+<g font-family="system-ui, sans-serif">
+<text x="28" y="37" fill="#14284b" font-size="25" font-weight="650">Summed trial enrollment</text>
+<text x="28" y="70" fill="#526477" font-size="21">Same three trials. Different row counts.</text>
+<line x1="70" y1="337.000" x2="624" y2="337.000" stroke="#cbd2dc"/>
+<text x="58" y="344" fill="#526477" font-size="20" text-anchor="end">0</text>
+<line x1="70" y1="230.000" x2="624" y2="230.000" stroke="#cbd2dc"/>
+<text x="58" y="237" fill="#526477" font-size="20" text-anchor="end">800</text>
+<line x1="70" y1="123.000" x2="624" y2="123.000" stroke="#cbd2dc"/>
+<text x="58" y="130" fill="#526477" font-size="20" text-anchor="end">1,600</text>
+<text x="70" y="368" fill="#526477" font-size="21" text-anchor="middle">0</text>
+<text x="347" y="368" fill="#526477" font-size="21" text-anchor="middle">5</text>
+<text x="624" y="368" fill="#526477" font-size="21" text-anchor="middle">10</text>
+<text x="347" y="409" fill="#14284b" font-size="23" text-anchor="middle">Extra US sites on one trial</text>
+<polyline data-series="joined" fill="none" stroke="#9b4e25" stroke-width="4" stroke-dasharray="10 7" points="70.000,256.750 125.400,243.375 180.800,230.000 236.200,216.625 291.600,203.250 347.000,189.875 402.400,176.500 457.800,163.125 513.200,149.750 568.600,136.375 624.000,123.000"/>
+<circle data-series="joined" data-x="0" data-value="600" cx="70.000" cy="256.750" r="3.5" fill="#9b4e25"/>
+<circle data-series="joined" data-x="1" data-value="700" cx="125.400" cy="243.375" r="3.5" fill="#9b4e25"/>
+<circle data-series="joined" data-x="2" data-value="800" cx="180.800" cy="230.000" r="3.5" fill="#9b4e25"/>
+<circle data-series="joined" data-x="3" data-value="900" cx="236.200" cy="216.625" r="3.5" fill="#9b4e25"/>
+<circle data-series="joined" data-x="4" data-value="1000" cx="291.600" cy="203.250" r="3.5" fill="#9b4e25"/>
+<circle data-series="joined" data-x="5" data-value="1100" cx="347.000" cy="189.875" r="3.5" fill="#9b4e25"/>
+<circle data-series="joined" data-x="6" data-value="1200" cx="402.400" cy="176.500" r="3.5" fill="#9b4e25"/>
+<circle data-series="joined" data-x="7" data-value="1300" cx="457.800" cy="163.125" r="3.5" fill="#9b4e25"/>
+<circle data-series="joined" data-x="8" data-value="1400" cx="513.200" cy="149.750" r="3.5" fill="#9b4e25"/>
+<circle data-series="joined" data-x="9" data-value="1500" cx="568.600" cy="136.375" r="3.5" fill="#9b4e25"/>
+<circle data-series="joined" data-x="10" data-value="1600" cx="624.000" cy="123.000" r="3.5" fill="#9b4e25"/>
+<line x1="70" y1="95" x2="101" y2="95" stroke="#9b4e25" stroke-width="4" stroke-dasharray="10 7"/>
+<text x="112" y="102" fill="#9b4e25" font-size="21">Joined rows</text>
+<polyline data-series="identity" fill="none" stroke="#3f6798" stroke-width="4" points="70.000,270.125 125.400,270.125 180.800,270.125 236.200,270.125 291.600,270.125 347.000,270.125 402.400,270.125 457.800,270.125 513.200,270.125 568.600,270.125 624.000,270.125"/>
+<circle data-series="identity" data-x="0" data-value="500" cx="70.000" cy="270.125" r="3.5" fill="#3f6798"/>
+<circle data-series="identity" data-x="1" data-value="500" cx="125.400" cy="270.125" r="3.5" fill="#3f6798"/>
+<circle data-series="identity" data-x="2" data-value="500" cx="180.800" cy="270.125" r="3.5" fill="#3f6798"/>
+<circle data-series="identity" data-x="3" data-value="500" cx="236.200" cy="270.125" r="3.5" fill="#3f6798"/>
+<circle data-series="identity" data-x="4" data-value="500" cx="291.600" cy="270.125" r="3.5" fill="#3f6798"/>
+<circle data-series="identity" data-x="5" data-value="500" cx="347.000" cy="270.125" r="3.5" fill="#3f6798"/>
+<circle data-series="identity" data-x="6" data-value="500" cx="402.400" cy="270.125" r="3.5" fill="#3f6798"/>
+<circle data-series="identity" data-x="7" data-value="500" cx="457.800" cy="270.125" r="3.5" fill="#3f6798"/>
+<circle data-series="identity" data-x="8" data-value="500" cx="513.200" cy="270.125" r="3.5" fill="#3f6798"/>
+<circle data-series="identity" data-x="9" data-value="500" cx="568.600" cy="270.125" r="3.5" fill="#3f6798"/>
+<circle data-series="identity" data-x="10" data-value="500" cx="624.000" cy="270.125" r="3.5" fill="#3f6798"/>
+<line x1="360" y1="95" x2="391" y2="95" stroke="#3f6798" stroke-width="4"/>
+<text x="402" y="102" fill="#3f6798" font-size="21">Trial identities</text>
+</g>
+</svg>

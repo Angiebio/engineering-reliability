@@ -1,0 +1,46 @@
+[
+  {
+    "id": "SO-EXACT-ITEMS", "source": "observatory/core.py",
+    "old": "satisfied = set(data[\"items\"]) == set(expected)",
+    "new": "satisfied = set(expected) <= set(data[\"items\"])",
+    "tests": ["test_core.ObservatoryTests.test_superset_artifact_does_not_satisfy_exact_criterion"],
+    "claim": "A superset cannot satisfy the exact item-set criterion.", "finding": "SO-03"
+  },
+  {
+    "id": "SO-WAIT-RESET", "source": "observatory/core.py",
+    "old": "wait_until, wake, idle = event.wait_until, event.wake_condition, 0",
+    "new": "wait_until, wake = event.wait_until, event.wake_condition",
+    "tests": ["test_core.ObservatoryTests.test_authorized_wait_resets_existing_idle_count"],
+    "claim": "An authorized wait resets an already accumulated idle count.", "finding": "SO-03/SO-06"
+  },
+  {
+    "id": "SO-DUPLICATE-JSON", "source": "observatory/core.py",
+    "old": "json.loads(content, object_pairs_hook=pairs)", "new": "json.loads(content)",
+    "tests": ["test_core.ObservatoryTests.test_duplicate_json_key_with_correct_last_value_is_rejected"],
+    "claim": "Duplicate keys are rejected even when the last task identity is correct.", "finding": "SO-03"
+  },
+  {
+    "id": "SO-LEXICAL-THRESHOLD", "source": "observatory/core.py",
+    "old": "LEXICAL_THRESHOLD = 0.88", "new": "LEXICAL_THRESHOLD = 0.95",
+    "tests": ["test_core.ObservatoryTests.test_lexical_threshold_is_inclusive_and_separates_signals"],
+    "claim": "The development lexical baseline is inclusive at 0.88 and rejects 0.84.", "finding": "SO-03"
+  },
+  {
+    "id": "SO-EVIDENCE-WIRING", "source": "observatory/core.py",
+    "old": "satisfied = evidence[\"satisfied\"] or trust_claims_ablation", "new": "satisfied = True",
+    "tests": ["test_core.ObservatoryTests.test_cosmetic_is_not_progress"],
+    "claim": "Normal replay uses the evidence checker instead of accepting every result claim.", "finding": "SO-01"
+  },
+  {
+    "id": "SO-SEPARATE-PIN", "source": "observatory/core.py",
+    "old": "if sha256(raw) != expected_digest:", "new": "if False:",
+    "tests": ["test_core.ObservatoryTests.test_recomputed_agent_digest_cannot_replace_harness_pin"],
+    "claim": "Recomputed agent-side hashes cannot replace the separately pinned digest.", "finding": "SO-01"
+  },
+  {
+    "id": "SO-CRITERION-BINDING", "source": "observatory/core.py",
+    "old": "if data[\"criterion_id\"] != event.criterion_id:", "new": "if False:",
+    "tests": ["test_core.ObservatoryTests.test_artifact_cannot_complete_another_criterion_with_same_items"],
+    "claim": "An artifact cannot satisfy a different criterion merely because item sets match.", "finding": "SO-07"
+  }
+]

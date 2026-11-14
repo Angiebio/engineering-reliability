@@ -1,0 +1,32 @@
+[
+  {
+    "width": 1440,
+    "page_errors": [],
+    "external_requests": [],
+    "page_overflow": false,
+    "scenario_count": 24,
+    "controls_checked": [
+      "scenario",
+      "previous",
+      "next",
+      "slider",
+      "evidence details",
+      "svg download"
+    ]
+  },
+  {
+    "width": 390,
+    "page_errors": [],
+    "external_requests": [],
+    "page_overflow": false,
+    "scenario_count": 24,
+    "controls_checked": [
+      "scenario",
+      "previous",
+      "next",
+      "slider",
+      "evidence details",
+      "svg download"
+    ]
+  }
+]

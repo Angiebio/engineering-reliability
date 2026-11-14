@@ -1,0 +1,22 @@
+[
+  {
+    "width": 1440,
+    "recorded_frames_checked": 45,
+    "keyboard_step_change": true,
+    "rollback_replay": true,
+    "final_scenario_outcome_labels_explicit": true,
+    "page_errors": [],
+    "external_requests": [],
+    "page_overflow": false
+  },
+  {
+    "width": 390,
+    "recorded_frames_checked": 45,
+    "keyboard_step_change": true,
+    "rollback_replay": true,
+    "final_scenario_outcome_labels_explicit": true,
+    "page_errors": [],
+    "external_requests": [],
+    "page_overflow": false
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "width": 1440,
+    "scenarios_verified": 11,
+    "errors": [],
+    "external_requests": [],
+    "page_overflow": false,
+    "bars_and_labels_within_view": true,
+    "bar_width_ratio": 1.1999999073616672,
+    "visible_rate_dots": 5,
+    "back_navigation_synced": true,
+    "site_dial_positions": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  {
+    "width": 390,
+    "scenarios_verified": 11,
+    "errors": [],
+    "external_requests": [],
+    "page_overflow": false,
+    "bars_and_labels_within_view": true,
+    "bar_width_ratio": 1.2000000842011804,
+    "visible_rate_dots": 5,
+    "back_navigation_synced": true,
+    "site_dial_positions": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  }
+]
